@@ -11,7 +11,13 @@ EarthPulse is a NASA Space Apps 2026 project for **Dancing with the SARs**, on t
 - `/insights`: full-resolution difference histogram, category percentages, coverage, two-observation record, downloadable statistics and deterministic explanations.
 - `/about`: methods, provenance gaps, supplemental investigation, sources and scientific limitations.
 
-The original dark navy/teal interface is retained and extended. The core application requires no account, database, tile server, live NASA authentication, remote font or external AI API. The explanation panel is deterministic and grounded in the computed report.
+The default interface uses light ivory, forest green and muted gold. Radar imagery retains a dark neutral canvas and its scientific blue/orange change colors. The palette is centralized in `src/styles/theme.css`; Tailwind utilities and charts use the same semantic variables. The core application requires no account, database, tile server, live NASA authentication, remote font or external AI API. The explanation panel is deterministic and grounded in the computed report.
+
+## Color themes
+
+Use **Theme** in the header on any page to choose Haor Ivory, Midnight Orbit, Aurora Grove, Solar Dusk, Glacier or Nebula. Palette previews show each option; three are light and three are dark. The choice is saved locally, restored before paint on reload, preserved through navigation, and synchronized across tabs. The picker supports keyboard navigation and Escape. If storage is blocked, theme selection still works for the current page session.
+
+Theme metadata and persistence live in `src/lib/themes.ts`, the reusable picker in `src/components/ui/theme-switcher.tsx`, and palette overrides in `src/styles/theme.css`. Scientific blue/orange colors and the radar canvas stay consistent across themes. No external service or theme dependency is required.
 
 ## Stack
 

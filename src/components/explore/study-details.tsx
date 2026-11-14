@@ -19,7 +19,7 @@ export function StudySummary({ metadata }: { metadata: RadarMetadata }) {
           <Icon size={18} className="summary-icon" />
           <div>
             <p className="eyebrow">{label}</p>
-            <p className="mt-2 text-sm text-slate-100">{value}</p>
+            <p className="mt-2 text-sm text-heading">{value}</p>
           </div>
         </div>
       ))}
@@ -30,11 +30,9 @@ export function StudySummary({ metadata }: { metadata: RadarMetadata }) {
 export function ObservationSource({ metadata }: { metadata: RadarMetadata }) {
   return (
     <section className="panel observation-source p-5">
-      <h2 className="text-sm font-semibold text-slate-100">Observation source</h2>
-      <p className="mt-4 text-sm text-slate-200">NASA NISAR</p>
-      <p className="mt-1 text-xs leading-5 text-slate-400">
-        {metadata.measurement} · HH polarization
-      </p>
+      <h2 className="text-sm font-semibold text-heading">Observation source</h2>
+      <p className="mt-4 text-sm text-heading">NASA NISAR</p>
+      <p className="mt-1 text-xs leading-5 text-muted">{metadata.measurement} · HH polarization</p>
       <dl className="mt-4 space-y-2 text-xs">
         {[
           { label: "Before", date: metadata.beforeDate },
@@ -48,7 +46,7 @@ export function ObservationSource({ metadata }: { metadata: RadarMetadata }) {
           </div>
         ))}
       </dl>
-      <p className="mt-4 text-xs leading-5 text-slate-400">
+      <p className="mt-4 text-xs leading-5 text-muted">
         Dates supplied with the source exports. Exact acquisition times and orbit metadata are
         unavailable.
       </p>
@@ -56,7 +54,7 @@ export function ObservationSource({ metadata }: { metadata: RadarMetadata }) {
         href="/data/analysis.json"
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-5 inline-flex items-center gap-2 text-xs text-teal-300"
+        className="mt-5 inline-flex items-center gap-2 text-xs text-accent"
       >
         View analysis & provenance <ExternalLink size={12} />
       </a>

@@ -9,7 +9,7 @@
     "lint": "eslint",
     "format": "prettier --write src tests next.config.ts postcss.config.mjs",
     "format:check": "prettier --check src tests next.config.ts postcss.config.mjs",
-    "test": "node tests/map-clip.test.mjs && node tests/radar-metadata.test.mjs"
+    "test": "node tests/map-clip.test.mjs && node tests/radar-metadata.test.mjs && node tests/themes.test.mjs"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

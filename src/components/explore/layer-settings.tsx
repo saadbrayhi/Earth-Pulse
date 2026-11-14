@@ -27,8 +27,8 @@ export function LayerSettings({
 
   return (
     <section className="panel p-5">
-      <h2 className="mb-5 text-sm font-semibold text-slate-100">Layer settings</h2>
-      <label htmlFor="observation-date" className="text-xs text-slate-300">
+      <h2 className="mb-5 text-sm font-semibold text-heading">Layer settings</h2>
+      <label htmlFor="observation-date" className="text-xs text-foreground">
         Observations & comparison
       </label>
       <select
@@ -47,8 +47,8 @@ export function LayerSettings({
       <div className="mt-5">
         <RangeControl label="Overlay opacity" value={opacity} step={5} onChange={onOpacityChange} />
       </div>
-      <p className="mt-3 text-xs leading-5 text-slate-400">{description}</p>
-      <div className="mt-4 flex gap-2 rounded-lg bg-white/3 p-3 text-xs leading-5 text-slate-400">
+      <p className="mt-3 text-xs leading-5 text-muted">{description}</p>
+      <div className="mt-4 flex gap-2 rounded-lg bg-accent-soft p-3 text-xs leading-5 text-muted">
         <Info size={14} className="mt-0.5 shrink-0" />
         <span>
           Display previews are compressed; all statistics use the full-resolution source grid.

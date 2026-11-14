@@ -40,11 +40,11 @@ export function RadarComparison({
         <div>
           <h2
             id="map-heading"
-            className="flex items-center gap-2 text-sm font-semibold text-slate-100"
+            className="flex items-center gap-2 text-sm font-semibold text-heading"
           >
-            <Layers3 size={17} className="text-teal-300" /> Radar comparison
+            <Layers3 size={17} className="text-accent" /> Radar comparison
           </h2>
-          <p className="mt-1.5 text-xs text-slate-400">One map. Synchronized geography.</p>
+          <p className="mt-1.5 text-xs text-muted">One map. Synchronized geography.</p>
         </div>
         <SegmentedControl
           label="Radar layer"

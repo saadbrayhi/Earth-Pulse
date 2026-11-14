@@ -8,7 +8,7 @@ export function HomeHero() {
   return (
     <section className="home-hero">
       <div className="hero-copy">
-        <p className="eyebrow text-teal-300!">WATER & WETLANDS · EARTH OBSERVATION</p>
+        <p className="eyebrow text-accent!">WATER & WETLANDS · EARTH OBSERVATION</p>
         <h1>
           Every wetland
           <br />
@@ -27,7 +27,7 @@ export function HomeHero() {
           </Link>
         </div>
         <div className="hero-caption">
-          <span className="h-1.5 w-1.5 rounded-full bg-teal-300" /> {analysis.location} ·{" "}
+          <span className="h-1.5 w-1.5 rounded-full bg-accent" /> {analysis.location} ·{" "}
           {analysis.beforeDate} → {analysis.afterDate}
         </div>
       </div>
@@ -54,7 +54,7 @@ export function HomeHero() {
           </time>
         </div>
         <div className="hero-image-bottom">
-          <p className="eyebrow text-teal-200!">AN OBSERVATION, NOT AN ILLUSTRATION</p>
+          <p className="eyebrow text-image-accent!">AN OBSERVATION, NOT AN ILLUSTRATION</p>
           <p className="hero-image-title">The texture of a living landscape.</p>
           <span>
             Open the radar explorer <ArrowRight size={15} />

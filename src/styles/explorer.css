@@ -4,7 +4,7 @@
   margin-bottom: 24px;
   border: 1px solid var(--ep-border);
   border-radius: 11px;
-  background: #0c1624;
+  background: var(--surface);
 }
 .summary-cell {
   display: flex;
@@ -17,7 +17,7 @@
 }
 .summary-icon {
   flex-shrink: 0;
-  color: #7790a5;
+  color: var(--gold);
 }
 .explorer-grid {
   display: grid;
@@ -40,14 +40,14 @@
   display: inline-flex;
   padding: 4px;
   gap: 3px;
-  background: #080f1b;
+  background: var(--surface-soft);
   border: 1px solid var(--ep-border);
   border-radius: 7px;
 }
 .layer-selector button {
   min-width: 65px;
   padding: 8px 12px;
-  color: #8fa1b7;
+  color: var(--muted);
   border-radius: 4px;
   font-size: 11px;
   font-weight: 500;
@@ -56,13 +56,13 @@
     color 120ms;
 }
 .layer-selector button:hover {
-  color: #e2e8f0;
-  background: #1b2a3c;
+  color: var(--heading);
+  background: var(--surface-raised);
 }
 .layer-selector button[aria-pressed="true"] {
-  color: #91f0dd;
-  background: #173c38;
-  box-shadow: inset 0 0 0 1px #28534a;
+  color: var(--on-accent);
+  background: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
 }
 .map-observation-bar {
   display: flex;
@@ -71,24 +71,25 @@
   padding: 10px 20px;
   border-top: 1px solid var(--ep-border);
   border-bottom: 1px solid var(--ep-border);
-  background: #0b1421;
-  font-size: 10px;
+  background: var(--surface-soft);
+  font-size: 11px;
 }
 .radar-map-frame {
   position: relative;
   isolation: isolate;
   height: clamp(480px, 54vw, 650px);
-  background: #0a1520;
+  background: var(--map-background);
 }
 .radar-leaflet-map {
   height: 100%;
   width: 100%;
-  background-color: #0a1520;
+  background-color: var(--map-background);
   background-image:
-    linear-gradient(#8ea9ba08 1px, transparent 1px),
-    linear-gradient(90deg, #8ea9ba08 1px, transparent 1px);
+    linear-gradient(var(--map-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--map-grid) 1px, transparent 1px);
   background-size: 40px 40px;
   font-family: inherit;
+  color-scheme: dark;
 }
 .map-north {
   position: absolute;
@@ -100,10 +101,10 @@
   align-items: center;
   gap: 5px;
   padding: 10px 12px;
-  background: #0a1520e8;
-  border: 1px solid #334155;
+  background: var(--map-overlay);
+  border: 1px solid var(--map-border);
   border-radius: 7px;
-  color: #cbd5e1;
+  color: var(--map-text);
   font-size: 9px;
   pointer-events: none;
 }
@@ -117,7 +118,7 @@
   gap: 12px;
   padding: 28px;
   text-align: center;
-  background: #0c1626ed;
+  background: var(--surface);
 }
 .map-image-status {
   position: absolute;
@@ -136,17 +137,17 @@
   place-items: center;
   width: 34px;
   height: 34px;
-  border: 1px solid #334155;
+  border: 1px solid var(--map-border);
   border-radius: 5px;
-  background: #0c1727;
-  color: #cbd5e1;
+  background: var(--map-surface);
+  color: var(--map-text);
 }
 .map-fit-control button:hover {
-  background: #1b3044;
+  background: var(--map-hover);
 }
 .radar-leaflet-map .leaflet-control-zoom {
   margin: 12px;
-  border: 1px solid #334155;
+  border: 1px solid var(--map-border);
   box-shadow: 0 2px 8px #0003;
   overflow: hidden;
 }
@@ -154,33 +155,33 @@
   width: 32px;
   height: 32px;
   line-height: 32px;
-  color: #cbd5e1;
-  background: #0c1727;
-  border-color: #334155;
+  color: var(--map-text);
+  background: var(--map-surface);
+  border-color: var(--map-border);
 }
 .radar-leaflet-map .leaflet-control-zoom a:hover {
-  background: #1b3044;
-  color: white;
+  background: var(--map-hover);
+  color: var(--map-text);
 }
 .radar-leaflet-map .leaflet-control-zoom a.leaflet-disabled {
-  color: #526176;
+  color: var(--map-muted);
 }
 .radar-leaflet-map .leaflet-control-attribution {
-  background: #0b1421ee;
-  color: #94a3b8;
+  background: var(--map-overlay);
+  color: var(--map-muted);
   font-size: 9px;
   padding: 3px 7px;
 }
 .radar-leaflet-map .leaflet-control-attribution a {
-  color: #a8c1d1;
+  color: var(--map-text);
 }
 .radar-leaflet-map .leaflet-control-scale {
   margin: 0 0 14px 16px;
 }
 .radar-leaflet-map .leaflet-control-scale-line {
-  background: #0b1421c9;
-  border-color: #b0c2cf;
-  color: #cbd5e1;
+  background: var(--map-overlay);
+  border-color: var(--map-muted);
+  color: var(--map-text);
   text-shadow: none;
   font-size: 10px;
 }
@@ -191,8 +192,8 @@
   gap: 8px;
   padding: 13px 18px;
   border-top: 1px solid var(--ep-border);
-  color: #8a9eb3;
-  font-size: 9px;
+  color: var(--muted);
+  font-size: 11px;
 }
 .details-column {
   display: flex;
@@ -201,15 +202,20 @@
 }
 .legend-swatch {
   display: inline-block;
-  height: 12px;
-  width: 12px;
+  height: 14px;
+  width: 14px;
   flex-shrink: 0;
   border-radius: 3px;
-  border: 1px solid #ffffff25;
+  border: 1px solid var(--border);
 }
 .transparency-swatch {
-  background-color: #162335;
-  background-image: conic-gradient(#526175 25%, transparent 0 50%, #526175 0 75%, transparent 0);
+  background-color: var(--surface-soft);
+  background-image: conic-gradient(
+    var(--border) 25%,
+    transparent 0 50%,
+    var(--border) 0 75%,
+    transparent 0
+  );
   background-size: 6px 6px;
 }
 .extent-details {
@@ -218,8 +224,8 @@
   align-items: center;
   gap: 10px 18px;
   margin-top: 18px;
-  color: #788da3;
-  font-size: 10px;
+  color: var(--muted);
+  font-size: 11px;
 }
 @media (min-width: 1600px) {
   .explorer-grid {
@@ -303,7 +309,7 @@
   }
   .map-observation-bar {
     padding-inline: 14px;
-    font-size: 9px;
+    font-size: 11px;
   }
   .radar-map-frame {
     height: 440px;
@@ -312,7 +318,7 @@
 .swipe-controls {
   padding: 18px 20px;
   border-top: 1px solid var(--ep-border);
-  background: #0c1827;
+  background: var(--surface);
 }
 .swipe-divider {
   position: absolute;
@@ -320,7 +326,7 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: #a6f6e2;
+  background: var(--map-divider);
   box-shadow: 0 0 10px #0009;
   pointer-events: none;
 }
@@ -333,9 +339,9 @@
   place-items: center;
   width: 35px;
   height: 35px;
-  color: #072b26;
-  background: #a6f6e2;
-  border: 3px solid #1e5149;
+  color: var(--heading);
+  background: var(--map-divider);
+  border: 3px solid var(--accent);
   border-radius: 50%;
 }
 .swipe-date {
@@ -343,10 +349,10 @@
   z-index: 440;
   top: 22px;
   padding: 7px 9px;
-  border: 1px solid #334155;
+  border: 1px solid var(--map-border);
   border-radius: 4px;
-  background: #0b1527df;
-  color: #d2e6e5;
+  background: var(--map-overlay);
+  color: var(--map-text);
   font-size: 10px;
   pointer-events: none;
 }
@@ -361,10 +367,10 @@
   width: 100%;
   margin-top: 10px;
   padding: 10px 7px;
-  border: 1px solid #2b3e53;
+  border: 1px solid var(--border);
   border-radius: 5px;
-  color: #cbd5e1;
-  background: #0a1322;
+  color: var(--foreground);
+  background: var(--surface-raised);
   font-size: 12px;
 }
 .range-control input[type="range"] {

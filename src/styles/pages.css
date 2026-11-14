@@ -7,19 +7,19 @@
 }
 .hero-copy h1 {
   margin-top: 24px;
-  color: #f1f5f9;
+  color: var(--heading);
   font-size: clamp(45px, 5.3vw, 88px);
   line-height: 1.07;
   font-weight: 550;
   letter-spacing: -3px;
 }
 .hero-copy h1 span {
-  color: #7be6cf;
+  color: var(--accent);
 }
 .hero-description {
   margin-top: 26px;
   max-width: 490px;
-  color: #9aaec2;
+  color: var(--muted);
   font-size: 15px;
   line-height: 1.9;
 }
@@ -35,7 +35,7 @@
   align-items: center;
   gap: 8px;
   margin-top: 32px;
-  color: #7e93a8;
+  color: var(--muted);
   font-size: 10px;
 }
 .hero-observation {
@@ -43,9 +43,9 @@
   position: relative;
   min-height: 530px;
   overflow: hidden;
-  border: 1px solid #2b4652;
+  border: 1px solid var(--accent-border);
   border-radius: 14px;
-  background: #111e29;
+  background: var(--map-background);
 }
 .hero-radar-image {
   object-fit: cover;
@@ -59,7 +59,12 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #06101b90 0%, transparent 40%, #06101bf5 100%);
+  background: linear-gradient(
+    180deg,
+    var(--image-shade-top) 0%,
+    transparent 40%,
+    var(--image-shade-bottom) 100%
+  );
   pointer-events: none;
 }
 .hero-image-top {
@@ -71,7 +76,7 @@
   display: flex;
   justify-content: space-between;
   gap: 8px;
-  color: #d3e8e8;
+  color: var(--image-text);
   font-size: 9px;
   letter-spacing: 1px;
 }
@@ -90,7 +95,7 @@
 .hero-image-title {
   max-width: 320px;
   margin-top: 12px;
-  color: #eef7fa;
+  color: var(--image-text);
   font-size: 28px;
   line-height: 1.25;
   letter-spacing: -0.7px;
@@ -100,7 +105,7 @@
   align-items: center;
   gap: 10px;
   margin-top: 20px;
-  color: #a7dacd;
+  color: var(--image-accent);
   font-size: 11px;
 }
 .story-section {
@@ -111,7 +116,7 @@
 }
 .section-heading h2 {
   margin-top: 14px;
-  color: #e2e8f0;
+  color: var(--heading);
   font-size: clamp(23px, 2.5vw, 32px);
   line-height: 1.3;
   letter-spacing: -0.7px;
@@ -130,19 +135,19 @@
 }
 .story-card > svg {
   margin-bottom: 26px;
-  color: #79d4c5;
+  color: var(--gold);
   height: 25px;
   width: 25px;
 }
 .story-card h3 {
   margin-top: 13px;
-  color: #e2e8f0;
+  color: var(--heading);
   font-size: 17px;
   line-height: 1.4;
 }
 .story-card p {
   margin: 13px 0 22px;
-  color: #94a3b8;
+  color: var(--muted);
   font-size: 12px;
   line-height: 1.9;
 }
@@ -155,21 +160,22 @@
   gap: 22px;
   margin-top: 30px;
   padding: 28px;
-  border: 1px solid #25473f;
+  border: 1px solid var(--accent-border);
   border-radius: 11px;
-  background: linear-gradient(110deg, #12312d, #0c1b28);
+  background: linear-gradient(110deg, var(--accent-soft), var(--surface-soft));
+  border-left: 3px solid var(--gold);
 }
 .home-cta > svg {
-  color: #76d9c4;
+  color: var(--accent);
   flex-shrink: 0;
 }
 .home-cta h2 {
-  color: #dcefe9;
+  color: var(--heading);
   font-size: 18px;
 }
 .home-cta p {
   margin-top: 8px;
-  color: #91b0b3;
+  color: var(--muted);
   font-size: 12px;
   line-height: 1.7;
 }
@@ -192,7 +198,7 @@
   margin-top: 22px;
 }
 .chart-axis-caption {
-  color: #8197af;
+  color: var(--muted);
   text-align: center;
   font-size: 10px;
   line-height: 1.6;
@@ -205,7 +211,7 @@
 .category-track {
   height: 6px;
   border-radius: 6px;
-  background: #1e293b;
+  background: var(--surface-soft);
   overflow: hidden;
   margin: 12px 0 8px;
 }
@@ -215,13 +221,13 @@
   border-radius: 6px;
 }
 .category-track.decreased span {
-  background: #286edc;
+  background: var(--signal-decreased);
 }
 .category-track.increased span {
-  background: #eb6937;
+  background: var(--signal-increased);
 }
 .category-track.withinThreshold span {
-  background: #94a3b8;
+  background: var(--signal-neutral);
 }
 .observation-timeline {
   padding: 26px;
@@ -238,19 +244,19 @@
   flex-direction: column;
   gap: 12px;
   padding-left: 18px;
-  border-left: 2px solid #57bdab;
+  border-left: 2px solid var(--gold);
 }
 .timeline-pair time {
-  color: #82d9c9;
+  color: var(--accent);
   font-size: 12px;
 }
 .timeline-pair strong {
-  color: #e2e8f0;
+  color: var(--heading);
   font-size: 25px;
   font-weight: 500;
 }
 .timeline-pair p {
-  color: #94a3b8;
+  color: var(--muted);
   font-size: 11px;
 }
 .quality-grid {
@@ -262,7 +268,7 @@
 .method-list {
   margin-top: 16px;
   padding-left: 20px;
-  color: #9eafc2;
+  color: var(--muted);
   font-size: 12px;
   line-height: 1.9;
 }
@@ -287,20 +293,20 @@ ol.method-list {
 }
 .explanation-topics button {
   padding: 9px 13px;
-  border: 1px solid #314055;
+  border: 1px solid var(--border);
   border-radius: 20px;
-  color: #a8b8cb;
+  color: var(--foreground);
   font-size: 11px;
 }
 .explanation-topics button[aria-pressed="true"] {
-  border-color: #337766;
-  color: #9eecd9;
-  background: #12342d;
+  border-color: var(--accent-border);
+  color: var(--accent);
+  background: var(--accent-soft);
 }
 .explanation-answer {
   margin-top: 20px;
   max-width: 1000px;
-  color: #b3c4d5;
+  color: var(--foreground);
   font-size: 13px;
   line-height: 1.95;
 }
@@ -311,7 +317,7 @@ ol.method-list {
 .data-details summary {
   cursor: pointer;
   font-size: 12px;
-  color: #a5cecf;
+  color: var(--accent);
 }
 .table-scroll {
   overflow-x: auto;
@@ -332,10 +338,10 @@ ol.method-list {
   gap: 17px;
   padding: 16px 0;
   font-size: 11px;
-  color: #9eb4c8;
+  color: var(--muted);
 }
 .methodology-nav a:hover {
-  color: #8ce8d4;
+  color: var(--accent-hover);
 }
 .methodology-body {
   display: grid;
@@ -348,7 +354,7 @@ ol.method-list {
 }
 .method-section h2 {
   margin-top: 12px;
-  color: #e2e8f0;
+  color: var(--heading);
   font-size: 23px;
   line-height: 1.35;
   letter-spacing: -0.5px;
@@ -356,10 +362,10 @@ ol.method-list {
 .formula {
   margin-top: 25px;
   padding: 18px;
-  border: 1px solid #23453f;
+  border: 1px solid var(--gold-border);
   border-radius: 7px;
-  background: #12312d66;
-  color: #91e2cf;
+  background: var(--gold-soft);
+  color: var(--gold-strong);
   font-family: var(--font-geist-mono);
   font-size: 13px;
   overflow-wrap: anywhere;
@@ -370,13 +376,13 @@ ol.method-list {
   margin-top: 24px;
 }
 .source-list a {
-  color: #8ae7d1;
+  color: var(--accent);
   font-size: 13px;
 }
 .source-list span {
   display: block;
   margin-top: 6px;
-  color: #94a3b8;
+  color: var(--muted);
   font-size: 12px;
   line-height: 1.8;
 }
@@ -458,7 +464,7 @@ ol.method-list {
 }
 @media (max-width: 539px) {
   .hero-copy h1 {
-    font-size: 54px;
+    font-size: clamp(42px, 12vw, 54px);
   }
   .hero-observation {
     min-height: 420px;

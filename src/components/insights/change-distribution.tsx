@@ -28,13 +28,11 @@ export function ChangeDistribution() {
               <div className={`category-track ${item.key}`}>
                 <span style={{ width: `${item.percentValid}%` }} />
               </div>
-              <p className="text-xs text-slate-400">
-                {formatNumber(item.pixels)} valid paired pixels
-              </p>
+              <p className="text-xs text-muted">{formatNumber(item.pixels)} valid paired pixels</p>
             </div>
           ))}
         </div>
-        <p className="mt-6 text-xs leading-5 text-slate-400">
+        <p className="mt-6 text-xs leading-5 text-muted">
           Percentages use valid paired pixels, not total wetland area. Pixels within the threshold
           may still have changed; they are simply not highlighted.
         </p>

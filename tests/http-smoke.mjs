@@ -20,6 +20,24 @@ for (const [path, text] of pages) {
   assert.ok(html.includes(text), `${path} should include its page heading`);
   assert.ok(html.includes("Radar backscatter change is NOT validated flood extent."));
   assert.ok(!html.includes("Create Next App"));
+  assert.ok(
+    html.includes('aria-label="Choose color theme"'),
+    "Every page must expose the theme picker",
+  );
+  assert.ok(
+    html.includes('id="earthpulse-theme-init"'),
+    "Stored preferences must apply before paint",
+  );
+  for (const name of [
+    "Haor Ivory",
+    "Midnight Orbit",
+    "Aurora Grove",
+    "Solar Dusk",
+    "Glacier",
+    "Nebula",
+  ]) {
+    assert.ok(html.includes(name), `${path} should offer the ${name} theme`);
+  }
   for (const route of ["/explore", "/insights", "/about"]) {
     assert.ok(html.includes(`href="${route}"`), `Navigation to ${route} must exist on ${path}`);
   }

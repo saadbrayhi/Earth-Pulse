@@ -7,7 +7,7 @@ export function DataQuality() {
   return (
     <section className="quality-grid">
       <article className="panel p-6">
-        <CheckCircle2 size={20} className="text-teal-300" />
+        <CheckCircle2 size={20} className="text-accent" />
         <h2 className="section-title mt-4">What we checked</h2>
         <ul className="method-list">
           <li>Matching CRS, dimensions and affine transforms</li>

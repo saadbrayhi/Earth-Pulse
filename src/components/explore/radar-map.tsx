@@ -48,7 +48,13 @@ export default function RadarMap({
         ))}
         <GeoJSON
           data={analysis.studyArea as GeoJsonObject}
-          style={{ color: "#a5c3d0", weight: 1, opacity: 0.8, fill: false, dashArray: "4 5" }}
+          style={{
+            color: "var(--map-muted)",
+            weight: 1,
+            opacity: 0.8,
+            fill: false,
+            dashArray: "4 5",
+          }}
           interactive={false}
         />
         <MapControls metadata={metadata} />

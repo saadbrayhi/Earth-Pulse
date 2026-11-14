@@ -22,7 +22,7 @@ export function RangeControl({
     <div className="range-control">
       <div className="flex justify-between gap-3 text-xs">
         <label htmlFor={id}>{label}</label>
-        <output htmlFor={id} className="font-mono text-teal-300">
+        <output htmlFor={id} className="font-mono text-accent">
           {valueLabel}
         </output>
       </div>
@@ -36,10 +36,10 @@ export function RangeControl({
         aria-valuetext={valueLabel}
         aria-describedby={hint ? `${id}-hint` : undefined}
         onChange={(event) => onChange(event.currentTarget.valueAsNumber)}
-        className="mt-3 w-full accent-teal-300"
+        className="mt-3 w-full accent-accent"
       />
       {hint && (
-        <p id={`${id}-hint`} className="mt-1 text-xs leading-5 text-slate-400">
+        <p id={`${id}-hint`} className="mt-1 text-xs leading-5 text-muted">
           {hint}
         </p>
       )}

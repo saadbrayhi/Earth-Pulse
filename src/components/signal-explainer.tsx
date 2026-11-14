@@ -29,10 +29,10 @@ export function SignalExplainer() {
   return (
     <section className="panel explainer">
       <div className="flex items-center gap-2">
-        <Sparkles size={17} className="text-teal-300" />
+        <Sparkles size={17} className="text-accent" />
         <h2 className="section-title">Make sense of the signal</h2>
       </div>
-      <p className="mt-2 text-xs text-slate-400">
+      <p className="mt-2 text-xs text-muted">
         Explore what the observed signal can tell us, and where uncertainty remains.
       </p>
       <SegmentedControl

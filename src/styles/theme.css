@@ -1,0 +1,169 @@
+/* Palette tokens are shared by the app and the live previews in its picker. */
+:root,
+[data-theme-preview="ivory"] {
+  color-scheme: light;
+  --background: #f6f3eb;
+  --surface: #fffef9;
+  --surface-raised: #ffffff;
+  --surface-soft: #eeefe5;
+  --sidebar: #eeeee4;
+  --border: #d5dccd;
+  --heading: #193627;
+  --foreground: #293d30;
+  --muted: #586958;
+  --accent: #28563d;
+  --accent-hover: #1c432e;
+  --accent-soft: #e5eddf;
+  --accent-border: #b5c9ac;
+  --on-accent: #fffdf5;
+  --gold: #806329;
+  --gold-strong: #6d5527;
+  --gold-soft: #f2ead6;
+  --gold-border: #dcccaa;
+  --focus: var(--gold);
+  --panel-shadow: 0 3px 18px #223d2310;
+
+  /* Scientific signal colors are independent of the interface theme. */
+  --signal-decreased: #286edc;
+  --signal-increased: #eb6937;
+  --signal-neutral: #7b8376;
+
+  /* Keep radar imagery and its on-image controls on a dark, neutral canvas. */
+  --map-background: #0a1520;
+  --map-surface: #14212c;
+  --map-hover: #263943;
+  --map-border: #52636a;
+  --map-text: #f5f3e8;
+  --map-muted: #c0cbbf;
+  --map-grid: #aebfa614;
+  --map-divider: #e0cf9d;
+  --map-overlay: #14212cee;
+  --image-shade-top: #14211770;
+  --image-shade-bottom: #101e16f5;
+  --image-text: #fffdf4;
+  --image-accent: #e2d6b1;
+
+  --ep-background: var(--background);
+  --ep-panel: var(--surface);
+  --ep-border: var(--border);
+}
+
+:root[data-theme="orbit"],
+[data-theme-preview="orbit"] {
+  color-scheme: dark;
+  --background: #0a1220;
+  --surface: #111e2f;
+  --surface-raised: #192a40;
+  --surface-soft: #18273a;
+  --sidebar: #0e1928;
+  --border: #304459;
+  --heading: #f0f6fb;
+  --foreground: #d2e0ed;
+  --muted: #a4b8cb;
+  --accent: #7ae2cd;
+  --accent-hover: #b2f5e5;
+  --accent-soft: #153b38;
+  --accent-border: #35685e;
+  --on-accent: #072c24;
+  --gold: #e4c68c;
+  --gold-strong: #f1dcb4;
+  --gold-soft: #30291d;
+  --gold-border: #685637;
+  --panel-shadow: 0 5px 22px #00000025;
+}
+
+:root[data-theme="aurora"],
+[data-theme-preview="aurora"] {
+  color-scheme: dark;
+  --background: #0d1b18;
+  --surface: #142923;
+  --surface-raised: #213b32;
+  --surface-soft: #1c332b;
+  --sidebar: #10211c;
+  --border: #36574a;
+  --heading: #edf7df;
+  --foreground: #d4e7ce;
+  --muted: #a8c2af;
+  --accent: #c2e68e;
+  --accent-hover: #e0f6bc;
+  --accent-soft: #2c4026;
+  --accent-border: #5c7a41;
+  --on-accent: #203514;
+  --gold: #e7c78f;
+  --gold-strong: #f4deba;
+  --gold-soft: #332c20;
+  --gold-border: #756040;
+  --panel-shadow: 0 5px 22px #00000025;
+}
+
+:root[data-theme="dusk"],
+[data-theme-preview="dusk"] {
+  color-scheme: light;
+  --background: #faf1e9;
+  --surface: #fffaf5;
+  --surface-raised: #ffffff;
+  --surface-soft: #f1e3d8;
+  --sidebar: #f1e5db;
+  --border: #ddc9bb;
+  --heading: #4d2935;
+  --foreground: #553f40;
+  --muted: #765b57;
+  --accent: #914632;
+  --accent-hover: #713324;
+  --accent-soft: #f4e0d5;
+  --accent-border: #c89883;
+  --on-accent: #fffaf3;
+  --gold: #866126;
+  --gold-strong: #6c4c20;
+  --gold-soft: #f2e5c9;
+  --gold-border: #d8c293;
+  --panel-shadow: 0 3px 18px #62372310;
+}
+
+:root[data-theme="glacier"],
+[data-theme-preview="glacier"] {
+  color-scheme: light;
+  --background: #eff5f9;
+  --surface: #fbfdff;
+  --surface-raised: #ffffff;
+  --surface-soft: #e3edf4;
+  --sidebar: #e6eff5;
+  --border: #c3d3df;
+  --heading: #183a52;
+  --foreground: #2d4658;
+  --muted: #526b7c;
+  --accent: #245f84;
+  --accent-hover: #164666;
+  --accent-soft: #dcecf5;
+  --accent-border: #9fbfd3;
+  --on-accent: #fbfdff;
+  --gold: #73612b;
+  --gold-strong: #5e4d21;
+  --gold-soft: #f1ecd9;
+  --gold-border: #d3c89c;
+  --panel-shadow: 0 3px 18px #183a5210;
+}
+
+:root[data-theme="nebula"],
+[data-theme-preview="nebula"] {
+  color-scheme: dark;
+  --background: #181322;
+  --surface: #251d33;
+  --surface-raised: #352a47;
+  --surface-soft: #30263f;
+  --sidebar: #1e182b;
+  --border: #50415f;
+  --heading: #f5ecff;
+  --foreground: #e2d6ef;
+  --muted: #bba9ce;
+  --accent: #cdb0f6;
+  --accent-hover: #e5cfff;
+  --accent-soft: #3c2b50;
+  --accent-border: #775395;
+  --on-accent: #301c45;
+  --gold: #e9c79e;
+  --gold-strong: #f6dfc4;
+  --gold-soft: #382b24;
+  --gold-border: #796047;
+  --panel-shadow: 0 5px 22px #00000025;
+}

@@ -39,7 +39,7 @@ export function RouteBreadcrumb() {
       <Globe2 size={15} />
       <Link href="/">EarthPulse</Link>
       <ChevronRight size={12} />
-      <span className="text-slate-200" aria-current="page">
+      <span className="text-heading" aria-current="page">
         {title}
       </span>
     </div>

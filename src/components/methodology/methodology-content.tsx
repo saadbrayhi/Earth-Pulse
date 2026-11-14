@@ -188,7 +188,7 @@ export function MethodologyContent() {
               <li key={result.targetDate}>
                 {result.targetDate}: {result.status}.{" "}
                 {result.sourceUrl && (
-                  <a href={result.sourceUrl} className="text-teal-300">
+                  <a href={result.sourceUrl} className="text-accent">
                     Candidate metadata ↗
                   </a>
                 )}
