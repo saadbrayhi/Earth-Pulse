@@ -1,0 +1,255 @@
+{
+  "checkedAt": "2026-11-14T12:57:33.080176+00:00",
+  "bounds": [
+    [
+      25.0,
+      90.95
+    ],
+    [
+      25.25,
+      91.2
+    ]
+  ],
+  "temporalWindow": [
+    "2026-10-01",
+    "2026-11-06"
+  ],
+  "maxSamplesPerCollection": 5,
+  "imageryDownloaded": false,
+  "datasetsIntegrated": [],
+  "results": [
+    {
+      "collection": "NISAR_L2_GCOV_V1",
+      "queryUrl": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=NISAR_L2_GCOV_V1&bounding_box=90.95%2C25.0%2C91.2%2C25.25&temporal=2026-10-01T00%3A00%3A00Z%2C2026-11-06T23%3A59%3A59Z&page_size=5&sort_key=start_date",
+      "hits": 4,
+      "samples": [
+        {
+          "id": "G4406167615-ASF",
+          "productId": "NISAR_L2_PR_GCOV_033_141_A_014_4005_DHDH_A_20261021T231312_20261021T231347_P05036_N_F_J_001",
+          "observationStart": "2026-10-21T23:13:12.000Z",
+          "observationEnd": "2026-10-21T23:13:47.999Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4406167615-ASF.html"
+        },
+        {
+          "id": "G4410143547-ASF",
+          "productId": "NISAR_L2_PR_GCOV_034_069_A_014_4005_DHDH_A_20261028T232132_20261028T232207_P05036_N_F_J_001",
+          "observationStart": "2026-10-28T23:21:32.000Z",
+          "observationEnd": "2026-10-28T23:22:07.999Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4410143547-ASF.html"
+        },
+        {
+          "id": "G4404914500-ASF",
+          "productId": "NISAR_L2_PR_GCOV_034_091_D_076_4005_DHDH_A_20261030T123421_20261030T123455_P05036_N_F_J_001",
+          "observationStart": "2026-10-30T12:34:21.000Z",
+          "observationEnd": "2026-10-30T12:34:55.999Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4404914500-ASF.html"
+        },
+        {
+          "id": "G4405358852-ASF",
+          "productId": "NISAR_L2_PR_GCOV_034_141_A_014_4005_DHDH_A_20261102T231313_20261102T231347_P05036_N_F_J_001",
+          "observationStart": "2026-11-02T23:13:13.000Z",
+          "observationEnd": "2026-11-02T23:13:47.999Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4405358852-ASF.html"
+        }
+      ]
+    },
+    {
+      "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+      "queryUrl": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=NISAR_L2_GCOV_PROVISIONAL_V1&bounding_box=90.95%2C25.0%2C91.2%2C25.25&temporal=2026-10-01T00%3A00%3A00Z%2C2026-11-06T23%3A59%3A59Z&page_size=5&sort_key=start_date",
+      "hits": 5,
+      "samples": [
+        {
+          "id": "G4345771157-ASF",
+          "productId": "NISAR_L2_PR_GCOV_032_069_A_014_4005_DHDH_A_20261004T232132_20261004T232206_P05023_N_F_J_001",
+          "observationStart": "2026-10-04T23:21:32.000Z",
+          "observationEnd": "2026-10-04T23:22:06.999Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4345771157-ASF.html"
+        },
+        {
+          "id": "G4349847373-ASF",
+          "productId": "NISAR_L2_PR_GCOV_032_091_D_076_4005_DHDH_A_20261006T123420_20261006T123455_P05023_N_F_J_001",
+          "observationStart": "2026-10-06T12:34:20.000Z",
+          "observationEnd": "2026-10-06T12:34:55.999Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4349847373-ASF.html"
+        },
+        {
+          "id": "G4359287621-ASF",
+          "productId": "NISAR_L2_PR_GCOV_032_141_A_014_4005_DHDH_A_20261009T231312_20261009T231347_P05023_N_F_J_001",
+          "observationStart": "2026-10-09T23:13:12.000Z",
+          "observationEnd": "2026-10-09T23:13:47.999Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4359287621-ASF.html"
+        },
+        {
+          "id": "G4376132583-ASF",
+          "productId": "NISAR_L2_PR_GCOV_033_069_A_014_4005_DHDH_A_20261016T232132_20261016T232206_P05023_N_F_J_001",
+          "observationStart": "2026-10-16T23:21:32.000Z",
+          "observationEnd": "2026-10-16T23:22:06.999Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4376132583-ASF.html"
+        },
+        {
+          "id": "G4379605104-ASF",
+          "productId": "NISAR_L2_PR_GCOV_033_091_D_076_2005_QPDH_A_20261018T123421_20261018T123455_P05023_N_F_J_001",
+          "observationStart": "2026-10-18T12:34:21.000Z",
+          "observationEnd": "2026-10-18T12:34:55.999Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4379605104-ASF.html"
+        }
+      ]
+    },
+    {
+      "collection": "NISAR_L2_GCOV_BETA_V1",
+      "queryUrl": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=NISAR_L2_GCOV_BETA_V1&bounding_box=90.95%2C25.0%2C91.2%2C25.25&temporal=2026-10-01T00%3A00%3A00Z%2C2026-11-06T23%3A59%3A59Z&page_size=5&sort_key=start_date",
+      "hits": 0,
+      "samples": []
+    },
+    {
+      "collection": "OPERA_L3_DSWX-HLS_V1",
+      "queryUrl": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=OPERA_L3_DSWX-HLS_V1&bounding_box=90.95%2C25.0%2C91.2%2C25.25&temporal=2026-10-01T00%3A00%3A00Z%2C2026-11-06T23%3A59%3A59Z&page_size=5&sort_key=start_date",
+      "hits": 131,
+      "samples": [
+        {
+          "id": "G4335628432-POCLOUD",
+          "productId": "OPERA_L3_DSWx-HLS_T45RZJ_20261001T042407Z_20261003T014151Z_L9_30_v1.1",
+          "observationStart": "2026-10-01T04:24:07.208Z",
+          "observationEnd": "2026-10-01T04:24:07.208Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4335628432-POCLOUD.html"
+        },
+        {
+          "id": "G4335628531-POCLOUD",
+          "productId": "OPERA_L3_DSWx-HLS_T46RBP_20261001T042407Z_20261003T014153Z_L9_30_v1.1",
+          "observationStart": "2026-10-01T04:24:07.208Z",
+          "observationEnd": "2026-10-01T04:24:07.208Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4335628531-POCLOUD.html"
+        },
+        {
+          "id": "G4335628542-POCLOUD",
+          "productId": "OPERA_L3_DSWx-HLS_T46RBN_20261001T042407Z_20261003T014149Z_L9_30_v1.1",
+          "observationStart": "2026-10-01T04:24:07.208Z",
+          "observationEnd": "2026-10-01T04:24:07.208Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4335628542-POCLOUD.html"
+        },
+        {
+          "id": "G4335628635-POCLOUD",
+          "productId": "OPERA_L3_DSWx-HLS_T45RZH_20261001T042407Z_20261003T014152Z_L9_30_v1.1",
+          "observationStart": "2026-10-01T04:24:07.208Z",
+          "observationEnd": "2026-10-01T04:24:07.208Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4335628635-POCLOUD.html"
+        },
+        {
+          "id": "G4335630271-POCLOUD",
+          "productId": "OPERA_L3_DSWx-HLS_T46RCN_20261001T042407Z_20261003T014201Z_L9_30_v1.1",
+          "observationStart": "2026-10-01T04:24:07.208Z",
+          "observationEnd": "2026-10-01T04:24:07.208Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4335630271-POCLOUD.html"
+        }
+      ]
+    },
+    {
+      "collection": "OPERA_L3_DSWX-S1_V1",
+      "queryUrl": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=OPERA_L3_DSWX-S1_V1&bounding_box=90.95%2C25.0%2C91.2%2C25.25&temporal=2026-10-01T00%3A00%3A00Z%2C2026-11-06T23%3A59%3A59Z&page_size=5&sort_key=start_date",
+      "hits": 53,
+      "samples": [
+        {
+          "id": "G4362289005-POCLOUD",
+          "productId": "OPERA_L3_DSWx-S1_T46RBP_20261002T234618Z_20261013T122010Z_S1D_30_v1.0",
+          "observationStart": "2026-10-02T23:46:48.000Z",
+          "observationEnd": "2026-10-02T23:47:02.000Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4362289005-POCLOUD.html"
+        },
+        {
+          "id": "G4362289053-POCLOUD",
+          "productId": "OPERA_L3_DSWx-S1_T45RZJ_20261002T234618Z_20261013T122010Z_S1D_30_v1.0",
+          "observationStart": "2026-10-02T23:46:50.000Z",
+          "observationEnd": "2026-10-02T23:47:02.000Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4362289053-POCLOUD.html"
+        },
+        {
+          "id": "G4362290824-POCLOUD",
+          "productId": "OPERA_L3_DSWx-S1_T46RCN_20261002T234649Z_20261013T122027Z_S1D_30_v1.0",
+          "observationStart": "2026-10-02T23:46:52.000Z",
+          "observationEnd": "2026-10-02T23:47:16.000Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4362290824-POCLOUD.html"
+        },
+        {
+          "id": "G4362290772-POCLOUD",
+          "productId": "OPERA_L3_DSWx-S1_T45RZH_20261002T234649Z_20261013T122027Z_S1D_30_v1.0",
+          "observationStart": "2026-10-02T23:46:56.000Z",
+          "observationEnd": "2026-10-02T23:47:16.000Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4362290772-POCLOUD.html"
+        },
+        {
+          "id": "G4362290810-POCLOUD",
+          "productId": "OPERA_L3_DSWx-S1_T46RBN_20261002T234649Z_20261013T122027Z_S1D_30_v1.0",
+          "observationStart": "2026-10-02T23:46:56.000Z",
+          "observationEnd": "2026-10-02T23:47:16.000Z",
+          "cloudCover": null,
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4362290810-POCLOUD.html"
+        }
+      ]
+    },
+    {
+      "collection": "HLSL30",
+      "queryUrl": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=HLSL30&bounding_box=90.95%2C25.0%2C91.2%2C25.25&temporal=2026-10-01T00%3A00%3A00Z%2C2026-11-06T23%3A59%3A59Z&page_size=5&sort_key=start_date",
+      "hits": 30,
+      "samples": [
+        {
+          "id": "G4335493072-LPCLOUD",
+          "productId": "HLS.L30.T46RBN.2026274T042407.v2.0",
+          "observationStart": "2026-10-01T04:24:07.208Z",
+          "observationEnd": "2026-10-01T04:24:31.103Z",
+          "cloudCover": "58",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4335493072-LPCLOUD.html"
+        },
+        {
+          "id": "G4335493156-LPCLOUD",
+          "productId": "HLS.L30.T46RCP.2026274T042407.v2.0",
+          "observationStart": "2026-10-01T04:24:07.208Z",
+          "observationEnd": "2026-10-01T04:24:31.103Z",
+          "cloudCover": "72",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4335493156-LPCLOUD.html"
+        },
+        {
+          "id": "G4335493359-LPCLOUD",
+          "productId": "HLS.L30.T46RCN.2026274T042407.v2.0",
+          "observationStart": "2026-10-01T04:24:07.208Z",
+          "observationEnd": "2026-10-01T04:24:31.103Z",
+          "cloudCover": "65",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4335493359-LPCLOUD.html"
+        },
+        {
+          "id": "G4335495216-LPCLOUD",
+          "productId": "HLS.L30.T45RZJ.2026274T042407.v2.0",
+          "observationStart": "2026-10-01T04:24:07.208Z",
+          "observationEnd": "2026-10-01T04:24:31.103Z",
+          "cloudCover": "49",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4335495216-LPCLOUD.html"
+        },
+        {
+          "id": "G4335495260-LPCLOUD",
+          "productId": "HLS.L30.T46RBP.2026274T042407.v2.0",
+          "observationStart": "2026-10-01T04:24:07.208Z",
+          "observationEnd": "2026-10-01T04:24:31.103Z",
+          "cloudCover": "49",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4335495260-LPCLOUD.html"
+        }
+      ]
+    }
+  ]
+}

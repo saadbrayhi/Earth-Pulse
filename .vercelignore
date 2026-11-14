@@ -1,0 +1,9 @@
+.venv/
+.aws
+.netrc
+.env*
+data/raw/
+data/derived/
+processing/
+tests/
+__pycache__/

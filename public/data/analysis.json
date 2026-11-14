@@ -1,0 +1,430 @@
+{
+  "schemaVersion": 1,
+  "location": "Tanguar Haor, Bangladesh",
+  "beforeDate": "2026-10-06",
+  "afterDate": "2026-10-30",
+  "bounds": [
+    [
+      25.0,
+      90.95
+    ],
+    [
+      25.25,
+      91.2
+    ]
+  ],
+  "product": "NISAR L2 GCOV",
+  "frequency": "A",
+  "polarization": "HH",
+  "measurement": "HHHH",
+  "sources": [
+    {
+      "date": "2026-10-06",
+      "path": "data/raw/hhhh_20261006.tif",
+      "parentGranuleId": null,
+      "sha256": "52376faa324f550402c212d3d0286452f5451a24cb30a7d5f61a0eb1e4f3f3ab",
+      "crs": "EPSG:4326",
+      "width": 2641,
+      "height": 2641,
+      "resolutionDegrees": [
+        9.46611132146914e-05,
+        9.46611132146914e-05
+      ],
+      "transform": [
+        9.46611132146914e-05,
+        0.0,
+        90.95,
+        0.0,
+        -9.46611132146914e-05,
+        25.25
+      ],
+      "nodata": "NaN",
+      "validPixels": 6974728,
+      "productTitle": "NISAR L2 GCOV Product",
+      "measurementDescription": "Covariance between HH and HH",
+      "units": "1",
+      "acquisitionTimestamp": null,
+      "relativeOrbit": null,
+      "qualityMaskAvailable": false
+    },
+    {
+      "date": "2026-10-30",
+      "path": "data/raw/hhhh_20261030.tif",
+      "parentGranuleId": null,
+      "sha256": "a4cf4af963590d6195ce1d536eb8ea174e71302bebf929daa94045c510a27c78",
+      "crs": "EPSG:4326",
+      "width": 2641,
+      "height": 2641,
+      "resolutionDegrees": [
+        9.46611132146914e-05,
+        9.46611132146914e-05
+      ],
+      "transform": [
+        9.46611132146914e-05,
+        0.0,
+        90.95,
+        0.0,
+        -9.46611132146914e-05,
+        25.25
+      ],
+      "nodata": "NaN",
+      "validPixels": 6974721,
+      "productTitle": "NISAR L2 GCOV Product",
+      "measurementDescription": "Covariance between HH and HH",
+      "units": "1",
+      "acquisitionTimestamp": null,
+      "relativeOrbit": null,
+      "qualityMaskAvailable": false
+    }
+  ],
+  "dateEvidence": "Dates supplied by the project owner and encoded in filenames; acquisition timestamps and parent granule IDs are absent from the exported GeoTIFFs.",
+  "assets": {
+    "before": {
+      "url": "/data/display/before-fc05d428cb2f.webp",
+      "bytes": 717954,
+      "width": 1391,
+      "height": 1536,
+      "projection": "EPSG:3857",
+      "encoding": "WebP quality 85"
+    },
+    "after": {
+      "url": "/data/display/after-cfc308a083a3.webp",
+      "bytes": 730966,
+      "width": 1391,
+      "height": 1536,
+      "projection": "EPSG:3857",
+      "encoding": "WebP quality 85"
+    },
+    "change": {
+      "url": "/data/display/change-94d3e91bc4b6.webp",
+      "bytes": 324220,
+      "width": 1391,
+      "height": 1536,
+      "projection": "EPSG:3857",
+      "encoding": "lossless WebP"
+    }
+  },
+  "studyArea": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Tanguar Haor wetland, Sunamganj, Bangladesh"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                90.95,
+                25.0
+              ],
+              [
+                91.2,
+                25.0
+              ],
+              [
+                91.2,
+                25.25
+              ],
+              [
+                90.95,
+                25.25
+              ],
+              [
+                90.95,
+                25.0
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "processing": {
+    "formula": "10 \u00d7 log10(after power) \u2212 10 \u00d7 log10(before power)",
+    "thresholdDb": 3.0,
+    "stretchPercentiles": [
+      2,
+      98
+    ],
+    "stretchDb": [
+      -24.255277633666992,
+      -1.926726222038269
+    ],
+    "speckleFilter": "None; statistics use unfiltered full-resolution exported pixels",
+    "previewResampling": "Grayscale: bilinear in dB; categorical change and validity: nearest-neighbor; previews reprojected to EPSG:3857",
+    "areaCrs": "EPSG:6933",
+    "statisticsGrid": "Original exported EPSG:4326 grid; display compression never enters the analysis"
+  },
+  "quality": {
+    "totalPixels": 6974881,
+    "pairedValidPixels": 6974711,
+    "invalidPairedPixels": 170,
+    "pairedValidPercent": 99.99756268243144,
+    "alignmentVerified": true,
+    "aoiAreaKm2": 698.210744131997,
+    "pairedAreaKm2": 698.1937395498336,
+    "orbitComparability": "Unverified: orbit, incidence angle and acquisition mode metadata are absent from the exports",
+    "waterValidation": "Not performed; no independent co-temporal water reference integrated"
+  },
+  "before": {
+    "count": 6974711,
+    "minDb": -34.30436706542969,
+    "maxDb": 28.09906768798828,
+    "meanDb": -15.207663929235038,
+    "stdDb": 6.7835991927572605,
+    "p02Db": -24.683197021484375,
+    "p25Db": -20.692625045776367,
+    "medianDb": -17.694608688354492,
+    "p75Db": -8.899317741394043,
+    "p98Db": -1.743469476699829
+  },
+  "after": {
+    "count": 6974711,
+    "minDb": -32.96061706542969,
+    "maxDb": 26.859130859375,
+    "meanDb": -14.054861695062232,
+    "stdDb": 6.029588819408911,
+    "p02Db": -23.577478408813477,
+    "p25Db": -18.975858688354492,
+    "medianDb": -15.26083755493164,
+    "p75Db": -8.966241836547852,
+    "p98Db": -2.1249163150787354
+  },
+  "delta": {
+    "count": 6974711,
+    "minDb": -36.8741340637207,
+    "maxDb": 37.23017883300781,
+    "meanDb": 1.1528022341615016,
+    "stdDb": 3.698811459247476,
+    "p02Db": -5.787980937957764,
+    "p25Db": -1.3452515006065369,
+    "medianDb": 0.9119949340820312,
+    "p75Db": 3.4075121879577637,
+    "p98Db": 9.543902397155758
+  },
+  "categories": [
+    {
+      "key": "decreased",
+      "pixels": 814216,
+      "percentValid": 11.673831360181088,
+      "areaKm2": 81.48921857678225
+    },
+    {
+      "key": "withinThreshold",
+      "pixels": 4176663,
+      "percentValid": 59.88295429014908,
+      "areaKm2": 418.0694586031891
+    },
+    {
+      "key": "increased",
+      "pixels": 1983832,
+      "percentValid": 28.443214349669827,
+      "areaKm2": 198.6350623698622
+    }
+  ],
+  "histogram": [
+    {
+      "label": "< \u221215",
+      "lowerDb": null,
+      "upperDb": -15.0,
+      "pixels": 891
+    },
+    {
+      "label": "-15 to -14",
+      "lowerDb": -15.0,
+      "upperDb": -14.0,
+      "pixels": 226
+    },
+    {
+      "label": "-14 to -13",
+      "lowerDb": -14.0,
+      "upperDb": -13.0,
+      "pixels": 351
+    },
+    {
+      "label": "-13 to -12",
+      "lowerDb": -13.0,
+      "upperDb": -12.0,
+      "pixels": 670
+    },
+    {
+      "label": "-12 to -11",
+      "lowerDb": -12.0,
+      "upperDb": -11.0,
+      "pixels": 1282
+    },
+    {
+      "label": "-11 to -10",
+      "lowerDb": -11.0,
+      "upperDb": -10.0,
+      "pixels": 2723
+    },
+    {
+      "label": "-10 to -9",
+      "lowerDb": -10.0,
+      "upperDb": -9.0,
+      "pixels": 6026
+    },
+    {
+      "label": "-9 to -8",
+      "lowerDb": -9.0,
+      "upperDb": -8.0,
+      "pixels": 13565
+    },
+    {
+      "label": "-8 to -7",
+      "lowerDb": -8.0,
+      "upperDb": -7.0,
+      "pixels": 30505
+    },
+    {
+      "label": "-7 to -6",
+      "lowerDb": -7.0,
+      "upperDb": -6.0,
+      "pixels": 63212
+    },
+    {
+      "label": "-6 to -5",
+      "lowerDb": -6.0,
+      "upperDb": -5.0,
+      "pixels": 123422
+    },
+    {
+      "label": "-5 to -4",
+      "lowerDb": -5.0,
+      "upperDb": -4.0,
+      "pixels": 218449
+    },
+    {
+      "label": "-4 to -3",
+      "lowerDb": -4.0,
+      "upperDb": -3.0,
+      "pixels": 352894
+    },
+    {
+      "label": "-3 to -2",
+      "lowerDb": -3.0,
+      "upperDb": -2.0,
+      "pixels": 510694
+    },
+    {
+      "label": "-2 to -1",
+      "lowerDb": -2.0,
+      "upperDb": -1.0,
+      "pixels": 662996
+    },
+    {
+      "label": "-1 to 0",
+      "lowerDb": -1.0,
+      "upperDb": 0.0,
+      "pixels": 767554
+    },
+    {
+      "label": "0 to 1",
+      "lowerDb": 0.0,
+      "upperDb": 1.0,
+      "pixels": 801477
+    },
+    {
+      "label": "1 to 2",
+      "lowerDb": 1.0,
+      "upperDb": 2.0,
+      "pixels": 763405
+    },
+    {
+      "label": "2 to 3",
+      "lowerDb": 2.0,
+      "upperDb": 3.0,
+      "pixels": 670533
+    },
+    {
+      "label": "3 to 4",
+      "lowerDb": 3.0,
+      "upperDb": 4.0,
+      "pixels": 553124
+    },
+    {
+      "label": "4 to 5",
+      "lowerDb": 4.0,
+      "upperDb": 5.0,
+      "pixels": 430936
+    },
+    {
+      "label": "5 to 6",
+      "lowerDb": 5.0,
+      "upperDb": 6.0,
+      "pixels": 322052
+    },
+    {
+      "label": "6 to 7",
+      "lowerDb": 6.0,
+      "upperDb": 7.0,
+      "pixels": 231133
+    },
+    {
+      "label": "7 to 8",
+      "lowerDb": 7.0,
+      "upperDb": 8.0,
+      "pixels": 159294
+    },
+    {
+      "label": "8 to 9",
+      "lowerDb": 8.0,
+      "upperDb": 9.0,
+      "pixels": 106599
+    },
+    {
+      "label": "9 to 10",
+      "lowerDb": 9.0,
+      "upperDb": 10.0,
+      "pixels": 68725
+    },
+    {
+      "label": "10 to 11",
+      "lowerDb": 10.0,
+      "upperDb": 11.0,
+      "pixels": 43252
+    },
+    {
+      "label": "11 to 12",
+      "lowerDb": 11.0,
+      "upperDb": 12.0,
+      "pixels": 26484
+    },
+    {
+      "label": "12 to 13",
+      "lowerDb": 12.0,
+      "upperDb": 13.0,
+      "pixels": 16369
+    },
+    {
+      "label": "13 to 14",
+      "lowerDb": 13.0,
+      "upperDb": 14.0,
+      "pixels": 9822
+    },
+    {
+      "label": "14 to 15",
+      "lowerDb": 14.0,
+      "upperDb": 15.0,
+      "pixels": 5928
+    },
+    {
+      "label": "\u2265 15",
+      "lowerDb": 15.0,
+      "upperDb": null,
+      "pixels": 10118
+    }
+  ],
+  "limitations": [
+    "Exploratory \u00b13 dB backscatter threshold, not a water detector",
+    "No native NISAR layover/shadow quality mask in these exports",
+    "HH-only observations cannot uniquely separate water, roughness, vegetation and moisture",
+    "Dates supplied by the owner; parent granule IDs and timestamps unavailable",
+    "Analysis rectangle includes surrounding land; it is not an authoritative wetland boundary",
+    "Spatially correlated pixels do not provide independent statistical confidence"
+  ]
+}

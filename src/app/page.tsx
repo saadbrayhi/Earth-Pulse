@@ -1,69 +1,42 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, BookOpen, Droplets, Layers3, Satellite, Waves } from "lucide-react";
+import { analysis, formatNumber } from "@/lib/analysis";
+import { MetricCard } from "@/components/metric-card";
+import { ScienceNotice } from "@/components/science-notice";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <section className="home-hero">
+        <div className="hero-copy">
+          <p className="eyebrow text-teal-300!">WATER & WETLANDS · EARTH OBSERVATION</p>
+          <h1>Every wetland<br />has a <span>pulse.</span></h1>
+          <p className="hero-description">See a changing landscape through radar. EarthPulse brings NASA NISAR observations of Tanguar Haor into focus, with real data and room for uncertainty.</p>
+          <div className="hero-actions"><Link className="primary-button" href="/explore">Explore the landscape <ArrowRight size={17} /></Link><Link className="text-link" href="/about"><BookOpen size={15} /> How it works</Link></div>
+          <div className="hero-caption"><span className="h-1.5 w-1.5 rounded-full bg-teal-300" /> Tanguar Haor, Bangladesh · October 2026</div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <Link href="/explore" className="hero-observation" aria-label="Explore actual NISAR backscatter imagery">
+          <Image src={analysis.assets.after.url} alt="Actual October 30 NISAR HH radar observation of the Tanguar Haor analysis region" fill priority unoptimized sizes="(max-width: 1023px) 100vw, 50vw" className="hero-radar-image" />
+          <div className="hero-image-top"><span><Satellite size={14} /> NISAR / GCOV / HH</span><span>30 OCT 2026</span></div>
+          <div className="hero-image-bottom"><p className="eyebrow text-teal-200!">AN OBSERVATION, NOT AN ILLUSTRATION</p><p>The texture of a living landscape.</p><span>Open the radar explorer <ArrowRight size={15} /></span></div>
+        </Link>
+      </section>
+      <div className="metrics-grid home-metrics">
+        <MetricCard label="OBSERVATION PAIR" value="06 → 30 Oct" detail="Two supplied observations, 2026" />
+        <MetricCard label="VALID PAIRED PIXELS" value={formatNumber(analysis.quality.pairedValidPixels)} detail="Full-resolution, positive finite measurements" />
+        <MetricCard label="PAIRED COVERAGE" value={`${formatNumber(analysis.quality.pairedValidPercent, 3)}%`} detail="Valid samples within the rectangular analysis grid" />
+      </div>
+      <section className="story-section">
+        <div className="section-heading"><p className="eyebrow">FROM SIGNAL TO UNDERSTANDING</p><h2>A different way to see water landscapes.</h2><p>Wetlands support habitats, store water and sustain livelihoods. Understanding their changing surface conditions begins with observations we can inspect and explain.</p></div>
+        <div className="story-grid">
+          <article className="panel story-card"><Waves /><span className="eyebrow">01 / THE PLACE</span><h3>A seasonal wetland mosaic</h3><p>Tanguar Haor is a Ramsar-listed wetland in northeastern Bangladesh. Its mix of water, vegetation and surrounding land makes it a useful case study for interpreting a complex radar signal.</p><a className="text-link" href="https://rsis.ramsar.org/RISapp/files/RISrep/BD1031RIS.pdf" target="_blank" rel="noopener noreferrer">Ramsar site information ↗</a></article>
+          <article className="panel story-card"><Satellite /><span className="eyebrow">02 / THE SENSOR</span><h3>Observe beyond the clouds</h3><p>NISAR is the NASA–ISRO Synthetic Aperture Radar mission. Radar uses its own signal to observe surfaces day or night, without needing clear optical skies.</p><a className="text-link" href="https://nisar-docs.asf.alaska.edu/amplitude/" target="_blank" rel="noopener noreferrer">Read the NISAR guide ↗</a></article>
+          <article className="panel story-card"><Layers3 /><span className="eyebrow">03 / THE EVIDENCE</span><h3>Compare, then question</h3><p>Swipe between two HH observations, inspect backscatter differences in decibels, and see exactly which pixels contribute to the summary. A changing signal is the starting point for investigation.</p><Link className="text-link" href="/insights">Inspect the measured changes <ArrowRight size={14} /></Link></article>
         </div>
-      </main>
-    </div>
+      </section>
+      <ScienceNotice />
+      <section className="home-cta"><Droplets size={28} /><div><h2>Start with what the satellite observed.</h2><p>Then explore what the signal can — and cannot — tell us.</p></div><Link href="/explore" className="primary-button">Open explorer <ArrowRight size={16} /></Link></section>
+    </>
   );
 }

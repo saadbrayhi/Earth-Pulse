@@ -1,0 +1,11 @@
+# EarthPulse judge walkthrough (about 3 minutes)
+
+1. **Overview (30 seconds).** Open `/`. Explain that EarthPulse makes two NASA/ISRO NISAR radar observations over Tanguar Haor accessible to people who do not use GIS software. The hero is an actual radar observation, not stock imagery. Point out the displayed dates and valid-pixel coverage.
+2. **Inspect the observation (60 seconds).** Open `/explore`. Start in Swipe mode. Move the comparison range to both ends, then midway. Pan and zoom: the two dates share one map. Choose each available observation, then Change. Explain that brighter grayscale means stronger radar return; blue means a decrease below −3 dB and orange an increase above +3 dB. Adjust opacity and fit the study region. The outline is a rectangular analysis region, not the official wetland boundary.
+3. **Inspect the evidence (45 seconds).** Open `/insights`. Read the actual mean and median difference, valid-pixel coverage, category percentages, histogram and two-observation record. Explain that all values come from the uncompressed source grid, not from the preview images. Open the exact-count table and download the result JSON.
+4. **Explain the limits (30 seconds).** Choose “Does this mean flooding?” in the deterministic explanation panel. State plainly that backscatter changes are not validated floodwater. No flood area or water trend is fabricated. Open `/about` to show formulas, missing orbit/timestamp metadata, source checksums, and the supplemental NASA catalog investigation.
+5. **Close (15 seconds).** The next scientific step is independent, near-date water reference access and quality screening, followed by a tested classifier. The current deliverable reliably exposes what the supplied satellite measurements actually show.
+
+Before presenting, run `npm run build` and `npm start`, open all four routes, and load the three WebP overlays once. Use the browser network panel to confirm no large PNG or GeoTIFF is requested. The core experience needs no live NASA login, tile server, external fonts or AI API.
+
+Do not claim that near-total numeric coverage proves high scientific confidence, that the change threshold detects water, or that EarthPulse is an operational flood-warning system.

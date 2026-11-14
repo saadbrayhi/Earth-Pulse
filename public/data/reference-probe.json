@@ -1,0 +1,25 @@
+{
+  "maxCandidatesPerDate": 1,
+  "results": [
+    {
+      "targetDate": "2026-10-06",
+      "queryUrl": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=OPERA_L3_DSWX-HLS_V1&bounding_box=90.95%2C25.0%2C91.2%2C25.25&page_size=1&temporal=2026-10-05T00%3A00%3A00Z%2C2026-10-07T23%3A59%3A59Z&sort_key=start_date",
+      "integrated": false,
+      "productId": "OPERA_L3_DSWx-HLS_T46RBP_20261005T043701Z_20261007T041550Z_S2C_30_v1.1",
+      "observationStart": "2026-10-05T04:51:24.847Z",
+      "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4346256309-POCLOUD.html",
+      "status": "Reference access unavailable; no raster integrated",
+      "errorType": "RuntimeError"
+    },
+    {
+      "targetDate": "2026-10-30",
+      "queryUrl": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=OPERA_L3_DSWX-HLS_V1&bounding_box=90.95%2C25.0%2C91.2%2C25.25&page_size=1&temporal=2026-10-29T00%3A00%3A00Z%2C2026-10-31T23%3A59%3A59Z&sort_key=start_date",
+      "integrated": false,
+      "productId": "OPERA_L3_DSWx-HLS_T46RCN_20261029T041901Z_20261031T145132Z_S2C_30_v1.1",
+      "observationStart": "2026-10-29T04:31:45.792Z",
+      "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4398668843-POCLOUD.html",
+      "status": "Reference access unavailable; no raster integrated",
+      "errorType": "RuntimeError"
+    }
+  ]
+}
