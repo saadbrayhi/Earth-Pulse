@@ -1,0 +1,18 @@
+{
+  "location": "Tanguar Haor, Bangladesh",
+  "beforeDate": "2026-10-06",
+  "afterDate": "2026-10-30",
+  "measurement": "NISAR GCOV Frequency A HHHH",
+  "bounds": [
+    [
+      25.0,
+      90.95
+    ],
+    [
+      25.25,
+      91.2
+    ]
+  ],
+  "changeThresholdDb": 3,
+  "interpretation": "Radar backscatter change, not validated flooding"
+}
