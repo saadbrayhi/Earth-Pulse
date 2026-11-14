@@ -1,0 +1,13 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"name": "Tanguar Haor wetland, Sunamganj, Bangladesh"},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[90.95, 25.00], [91.20, 25.00], [91.20, 25.25], [90.95, 25.25], [90.95, 25.00]]]
+      }
+    }
+  ]
+}
