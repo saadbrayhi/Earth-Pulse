@@ -12,7 +12,14 @@ export class MapErrorBoundary extends Component<{ children: ReactNode }, { faile
 
   render() {
     if (this.state.failed) {
-      return <MapStatus error title="The map could not start" detail="Reload the viewer to initialize a fresh map instance." onRetry={() => window.location.reload()} />;
+      return (
+        <MapStatus
+          error
+          title="The map could not start"
+          detail="Try starting a fresh map instance. Your layer settings will be preserved."
+          onRetry={() => this.setState({ failed: false })}
+        />
+      );
     }
     return this.props.children;
   }

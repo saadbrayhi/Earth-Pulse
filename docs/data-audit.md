@@ -13,7 +13,7 @@ The original TIFFs and legacy PNGs are preserved. No downloaded supplemental ras
 
 Both TIFFs have one float32 HHHH band, identical 2641 × 2641 north-up EPSG:4326 grids, and bounds southwest [25.0, 90.95], northeast [25.25, 91.2]. Both designate NaN as NoData. Each export retains NASA JPL NISAR L2 GCOV product identification and dimensionless HHHH intensity metadata. The pixel spacing is about 0.0000946611132 degrees in both axes. Parent UTM zone 46N metadata remains as historical HDF5 tags; the actual exported raster CRS controls analysis.
 
-There are 6,974,728 valid positive finite samples before, 6,974,721 after, and 6,974,711 paired samples. Every statistic and category uses that common population. Four initial processing tests were extended to six, including a direct recomputation from original power values, count/area accounting, and lossless change-color verification.
+There are 6,974,728 valid positive finite samples before, 6,974,721 after, and 6,974,711 paired samples. Every statistic and category uses that common population. Processing tests include direct recomputation from original power values, count/area accounting, threshold boundaries, histogram tails and lossless change-color verification. Current test results are recorded in validation.md.
 
 ## Not independently verified
 

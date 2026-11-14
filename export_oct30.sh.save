@@ -1,0 +1,4 @@
+machine urs.earthdata.nasa.gov
+    login <saadbrayhi source "/home/saad-br/projects and Work/earth-pulse/.venv/bin/activate"
+>
+    password <YOUR PASSWORD>  

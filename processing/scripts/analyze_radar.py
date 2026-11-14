@@ -64,8 +64,17 @@ def row_areas_km2(bounds, height, width):
 
 
 def write_raster(path, data, profile, nodata):
-    profile = {**profile, "driver": "GTiff", "count": 1, "dtype": str(data.dtype), "nodata": nodata,
-               "compress": "deflate", "tiled": True, "blockxsize": 256, "blockysize": 256}
+    profile = {
+        **profile,
+        "driver": "GTiff",
+        "count": 1,
+        "dtype": str(data.dtype),
+        "nodata": nodata,
+        "compress": "deflate",
+        "tiled": True,
+        "blockxsize": 256,
+        "blockysize": 256,
+    }
     with rasterio.open(path, "w", **profile) as dst:
         dst.write(data, 1)
 
@@ -98,6 +107,80 @@ def make_preview(db, paired, bounds, profile, stretch, change=False):
     return Image.fromarray(rgba)
 
 
+def audit_observation(ds, record, valid):
+    return {
+        **record,
+        "sha256": sha256(ROOT / record["path"]),
+        "crs": str(ds.crs),
+        "width": ds.width,
+        "height": ds.height,
+        "resolutionDegrees": list(ds.res),
+        "transform": list(ds.transform)[:6],
+        "nodata": "NaN" if ds.nodata is not None and math.isnan(ds.nodata) else ds.nodata,
+        "validPixels": int(valid.sum()),
+        "productTitle": ds.tags().get("NC_GLOBAL#title"),
+        "measurementDescription": ds.tags(1).get("description"),
+        "units": ds.tags(1).get("units"),
+        "acquisitionTimestamp": None,
+        "relativeOrbit": None,
+        "qualityMaskAvailable": False,
+    }
+
+
+def change_categories(delta, paired, areas, threshold=THRESHOLD):
+    """Summarize signal directions on paired pixels; threshold equality stays unhighlighted."""
+    masks = {
+        "decreased": paired & (delta < -threshold),
+        "withinThreshold": paired & (np.abs(delta) <= threshold),
+        "increased": paired & (delta > threshold),
+    }
+    categories = []
+    for name, mask in masks.items():
+        count = int(mask.sum())
+        categories.append({
+            "key": name,
+            "pixels": count,
+            "percentValid": count / int(paired.sum()) * 100,
+            "areaKm2": float(np.dot(mask.sum(axis=1), areas)),
+        })
+    return categories
+
+
+def change_histogram(values):
+    """Include every finite observation, including both tails."""
+    # Explicit tails make histogram counts sum exactly to the paired population.
+    edges = np.r_[-np.inf, np.arange(-15, 16, 1), np.inf]
+    counts, _ = np.histogram(values, bins=edges)
+    histogram = [{
+        "label": "< −15" if i == 0 else "≥ 15" if i == len(counts)-1 else f"{int(edges[i])} to {int(edges[i+1])}",
+        "lowerDb": None if not np.isfinite(edges[i]) else float(edges[i]),
+        "upperDb": None if not np.isfinite(edges[i+1]) else float(edges[i+1]),
+        "pixels": int(count),
+    } for i, count in enumerate(counts)]
+    return histogram
+
+
+def save_previews(arrays, paired, bounds, profile, stretch, display):
+    """Write versioned display images; return the browser asset manifest."""
+    assets = {}
+    for name, data in arrays.items():
+        image = make_preview(data, paired, bounds, profile, stretch, change=name == "change")
+        temporary = display / f"{name}.webp"
+        image.save(temporary, "WEBP", lossless=name == "change", quality=85, method=6)
+        digest = sha256(temporary)[:12]
+        final = display / f"{name}-{digest}.webp"
+        temporary.replace(final)
+        assets[name] = {
+            "url": "/data/display/" + final.name,
+            "bytes": final.stat().st_size,
+            "width": image.width,
+            "height": image.height,
+            "projection": "EPSG:3857",
+            "encoding": "lossless WebP" if name == "change" else "WebP quality 85",
+        }
+    return assets
+
+
 def main():
     sources = json.loads((ROOT / "processing/observations.json").read_text())
     records = sources["observations"]
@@ -113,14 +196,10 @@ def main():
         before, valid_b = power_to_db(first.read(1), first.read_masks(1) > 0)
         after, valid_a = power_to_db(second.read(1), second.read_masks(1) > 0)
         profile, bounds = first.profile, first.bounds
-        audits = []
-        for ds, record, valid in [(first, records[0], valid_b), (second, records[1], valid_a)]:
-            audits.append({**record, "sha256": sha256(ROOT / record["path"]), "crs": str(ds.crs),
-                "width": ds.width, "height": ds.height, "resolutionDegrees": list(ds.res),
-                "transform": list(ds.transform)[:6], "nodata": "NaN" if ds.nodata is not None and math.isnan(ds.nodata) else ds.nodata,
-                "validPixels": int(valid.sum()), "productTitle": ds.tags().get("NC_GLOBAL#title"),
-                "measurementDescription": ds.tags(1).get("description"), "units": ds.tags(1).get("units"),
-                "acquisitionTimestamp": None, "relativeOrbit": None, "qualityMaskAvailable": False})
+        audits = [
+            audit_observation(first, records[0], valid_b),
+            audit_observation(second, records[1], valid_a),
+        ]
     paired = valid_b & valid_a
     if not paired.any():
         raise ValueError("No positive, finite paired observations.")
@@ -131,55 +210,75 @@ def main():
     if stretch[1] <= stretch[0]:
         raise ValueError("Cannot display a constant-value pair with percentile stretching.")
     areas = row_areas_km2(bounds, profile["height"], profile["width"])
-    masks = {"decreased": paired & (delta < -THRESHOLD), "withinThreshold": paired & (np.abs(delta) <= THRESHOLD), "increased": paired & (delta > THRESHOLD)}
-    categories = []
-    for name, mask in masks.items():
-        count = int(mask.sum())
-        categories.append({"key": name, "pixels": count, "percentValid": count / int(paired.sum()) * 100,
-                           "areaKm2": float(np.dot(mask.sum(axis=1), areas))})
-    # Explicit tails make histogram counts sum exactly to the paired population.
-    edges = np.r_[-np.inf, np.arange(-15, 16, 1), np.inf]
-    counts, _ = np.histogram(values, bins=edges)
-    histogram = [{"label": "< −15" if i == 0 else "≥ 15" if i == len(counts)-1 else f"{int(edges[i])} to {int(edges[i+1])}",
-                  "lowerDb": None if not np.isfinite(edges[i]) else float(edges[i]),
-                  "upperDb": None if not np.isfinite(edges[i+1]) else float(edges[i+1]), "pixels": int(count)} for i, count in enumerate(counts)]
+    categories = change_categories(delta, paired, areas)
+    histogram = change_histogram(values)
     for name, data in [("before_db", before), ("after_db", after), ("delta_db", delta)]:
         write_raster(derived / f"{name}.tif", data, profile, np.nan)
     # 0 and 1 are both meaningful; 255 is reserved for NoData.
     write_raster(derived / "paired_valid_mask.tif", paired.astype("uint8"), profile, 255)
-    assets = {}
-    for name, data in [("before", before), ("after", after), ("change", delta)]:
-        image = make_preview(data, paired, bounds, profile, stretch, change=name == "change")
-        temporary = display / f"{name}.webp"
-        image.save(temporary, "WEBP", lossless=name == "change", quality=85, method=6)
-        digest = sha256(temporary)[:12]
-        final = display / f"{name}-{digest}.webp"
-        temporary.replace(final)
-        assets[name] = {"url": "/data/display/" + final.name, "bytes": final.stat().st_size, "width": image.width, "height": image.height,
-                        "projection": "EPSG:3857", "encoding": "lossless WebP" if name == "change" else "WebP quality 85"}
+    assets = save_previews({
+        "before": before,
+        "after": after,
+        "change": delta,
+    }, paired, bounds, profile, stretch, display)
     # This rectangle is a user-supplied analysis region, NOT a surveyed wetland boundary.
     (out / "study-area.geojson").write_bytes((ROOT / "data/raw/aoi_tanguar_haor.geojson").read_bytes())
-    report = {"schemaVersion": 1, "location": sources["location"], "beforeDate": records[0]["date"], "afterDate": records[1]["date"],
-        "bounds": [[bounds.bottom, bounds.left], [bounds.top, bounds.right]], "product": sources["product"], "frequency": "A", "polarization": "HH", "measurement": "HHHH",
-        "sources": audits, "dateEvidence": sources["dateEvidence"], "assets": assets,
+    report = {
+        "schemaVersion": 1,
+        "location": sources["location"],
+        "beforeDate": records[0]["date"],
+        "afterDate": records[1]["date"],
+        "bounds": [[bounds.bottom, bounds.left], [bounds.top, bounds.right]],
+        "product": sources["product"],
+        "frequency": "A",
+        "polarization": "HH",
+        "measurement": "HHHH",
+        "sources": audits,
+        "dateEvidence": sources["dateEvidence"],
+        "assets": assets,
         "studyArea": json.loads((ROOT / "data/raw/aoi_tanguar_haor.geojson").read_text()),
-        "processing": {"formula": "10 × log10(after power) − 10 × log10(before power)", "thresholdDb": THRESHOLD,
-            "stretchPercentiles": [2, 98], "stretchDb": stretch, "speckleFilter": "None; statistics use unfiltered full-resolution exported pixels",
+        "processing": {
+            "formula": "10 × log10(after power) − 10 × log10(before power)",
+            "thresholdDb": THRESHOLD,
+            "stretchPercentiles": [2, 98],
+            "stretchDb": stretch,
+            "speckleFilter": "None; statistics use unfiltered full-resolution exported pixels",
             "previewResampling": "Grayscale: bilinear in dB; categorical change and validity: nearest-neighbor; previews reprojected to EPSG:3857",
-            "areaCrs": "EPSG:6933", "statisticsGrid": "Original exported EPSG:4326 grid; display compression never enters the analysis"},
-        "quality": {"totalPixels": int(paired.size), "pairedValidPixels": int(paired.sum()), "invalidPairedPixels": int((~paired).sum()),
-            "pairedValidPercent": float(paired.mean() * 100), "alignmentVerified": True,
-            "aoiAreaKm2": float(areas.sum() * profile["width"]), "pairedAreaKm2": float(np.dot(paired.sum(axis=1), areas)),
+            "areaCrs": "EPSG:6933",
+            "statisticsGrid": "Original exported EPSG:4326 grid; display compression never enters the analysis",
+        },
+        "quality": {
+            "totalPixels": int(paired.size),
+            "pairedValidPixels": int(paired.sum()),
+            "invalidPairedPixels": int((~paired).sum()),
+            "pairedValidPercent": float(paired.mean() * 100),
+            "alignmentVerified": True,
+            "aoiAreaKm2": float(areas.sum() * profile["width"]),
+            "pairedAreaKm2": float(np.dot(paired.sum(axis=1), areas)),
             "orbitComparability": "Unverified: orbit, incidence angle and acquisition mode metadata are absent from the exports",
-            "waterValidation": "Not performed; no independent co-temporal water reference integrated"},
-        "before": summarize(before[paired]), "after": summarize(after[paired]), "delta": summarize(values),
-        "categories": categories, "histogram": histogram,
-        "limitations": ["Exploratory ±3 dB backscatter threshold, not a water detector", "No native NISAR layover/shadow quality mask in these exports",
-            "HH-only observations cannot uniquely separate water, roughness, vegetation and moisture", "Dates supplied by the owner; parent granule IDs and timestamps unavailable",
-            "Analysis rectangle includes surrounding land; it is not an authoritative wetland boundary", "Spatially correlated pixels do not provide independent statistical confidence"]}
+            "waterValidation": "Not performed; no independent co-temporal water reference integrated",
+        },
+        "before": summarize(before[paired]),
+        "after": summarize(after[paired]),
+        "delta": summarize(values),
+        "categories": categories,
+        "histogram": histogram,
+        "limitations": [
+            "Exploratory ±3 dB backscatter threshold, not a water detector",
+            "No native NISAR layover/shadow quality mask in these exports",
+            "HH-only observations cannot uniquely separate water, roughness, vegetation and moisture",
+            "Dates supplied by the owner; parent granule IDs and timestamps unavailable",
+            "Analysis rectangle includes surrounding land; it is not an authoritative wetland boundary",
+            "Spatially correlated pixels do not provide independent statistical confidence",
+        ],
+    }
     (out / "analysis.json").write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
     (derived / "audit.json").write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
-    print(json.dumps({"pairedValidPixels": report["quality"]["pairedValidPixels"], "deltaMeanDb": report["delta"]["meanDb"], "assets": assets}, indent=2))
+    print(json.dumps({
+        "pairedValidPixels": report["quality"]["pairedValidPixels"],
+        "deltaMeanDb": report["delta"]["meanDb"],
+        "assets": assets,
+    }, indent=2))
 
 
 if __name__ == "__main__":

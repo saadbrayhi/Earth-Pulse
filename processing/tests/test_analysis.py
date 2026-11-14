@@ -39,6 +39,19 @@ class AnalysisTests(unittest.TestCase):
         self.assertAlmostEqual(float(area.sum() * 10), 12308.46, delta=2)
         self.assertTrue((area > 0).all())
 
+    def test_threshold_boundaries_remain_unhighlighted(self):
+        delta = np.array([[-50, -3, 0, 3, 50]], dtype=np.float32)
+        paired = np.ones(delta.shape, dtype=bool)
+        categories = module.change_categories(delta, paired, np.array([1.0]))
+        self.assertEqual([item["pixels"] for item in categories], [1, 3, 1])
+        self.assertEqual(sum(item["areaKm2"] for item in categories), 5)
+
+    def test_histogram_accounts_for_extreme_tails(self):
+        histogram = module.change_histogram(np.array([-16, -15, 0, 15, 16]))
+        self.assertEqual(histogram[0]["pixels"], 1)
+        self.assertEqual(histogram[-1]["pixels"], 2)
+        self.assertEqual(sum(item["pixels"] for item in histogram), 5)
+
     def test_generated_population_accounting(self):
         data = json.loads((ROOT / "public/data/analysis.json").read_text())
         n = data["quality"]["pairedValidPixels"]

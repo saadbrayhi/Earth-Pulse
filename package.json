@@ -7,7 +7,9 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
-    "test": "node tests/map-clip.test.mjs"
+    "format": "prettier --write src tests next.config.ts postcss.config.mjs",
+    "format:check": "prettier --check src tests next.config.ts postcss.config.mjs",
+    "test": "node tests/map-clip.test.mjs && node tests/radar-metadata.test.mjs"
   },
   "dependencies": {
     "leaflet": "^1.9.4",
@@ -27,6 +29,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.6",
+    "prettier": "^3.10.1",
     "tailwindcss": "4.3.3",
     "typescript": "^5"
   }

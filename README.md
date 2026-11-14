@@ -38,6 +38,18 @@ npm start
 
 The production build uses the supported Webpack option. Turbopack's production CSS worker was denied local port binding in the managed execution environment. Both bundlers now use the standard Tailwind PostCSS adapter; the experimental loader was not reused in Webpack. System font stacks avoid Google Fonts build-time requests. Existing unrelated dependency changes were preserved.
 
+## Code organization
+
+Routes in `src/app` compose feature sections. Repeated headers, sliders, selectors and tables live in `src/components/ui`; explorer, home, insights and methodology components stay in their feature folders. `AppShell` renders on the server, with small client components for active navigation.
+
+- `src/hooks`: asynchronous metadata loading and retry state.
+- `src/lib`: typed radar configuration, pure metadata validation, formatting and swipe geometry.
+- `src/content`: reusable presentation copy and source lists.
+- `src/styles`: shared shell, explorer and page styles; explicit classes replace layout-dependent selectors.
+- `processing/scripts`: named analysis steps and a shared bounded NASA catalog client. Scientific outputs are unchanged by the refactor.
+
+Use `npm run format` to format frontend code and `npm run format:check` to check it. Keep map initialization in the client-only map boundary; controls should not recreate the map.
+
 ## Data actually used
 
 | Input | Supplied observation date | Description |

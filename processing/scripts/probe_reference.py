@@ -7,8 +7,7 @@ Requires system GDAL Python bindings. No water validation is inferred here.
 import json
 from pathlib import Path
 from datetime import date, timedelta
-from urllib.request import urlopen, Request
-from urllib.parse import urlencode
+from nasa_catalog import catalog_query, search_catalog, granule_url
 from osgeo import gdal
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -28,19 +27,23 @@ def main():
     results = []
     for label, observed in [("before", metadata["beforeDate"]), ("after", metadata["afterDate"])]:
         day = date.fromisoformat(observed)
-        params = {"short_name": "OPERA_L3_DSWX-HLS_V1", "bounding_box": f"{west},{south},{east},{north}", "page_size": 1,
-                  "temporal": f"{day-timedelta(days=1)}T00:00:00Z,{day+timedelta(days=1)}T23:59:59Z", "sort_key": "start_date"}
-        query = "https://cmr.earthdata.nasa.gov/search/granules.json?" + urlencode(params)
-        result = {"targetDate": observed, "queryUrl": query, "integrated": False}
+        query = catalog_query(
+            metadata["bounds"], "OPERA_L3_DSWX-HLS_V1",
+            f"{day - timedelta(days=1)}T00:00:00Z", f"{day + timedelta(days=1)}T23:59:59Z", limit=1,
+        )
+        result = {
+            "targetDate": observed,
+            "queryUrl": query,
+            "integrated": False,
+        }
         try:
-            with urlopen(Request(query, headers={"User-Agent": "EarthPulse-research/1.0"}), timeout=15) as response:
-                entries = json.load(response).get("feed", {}).get("entry", [])
+            entries, _ = search_catalog(query)
             if not entries:
                 result["status"] = "No near-date catalog candidates"
             else:
                 entry = entries[0]
                 result.update(productId=entry.get("producer_granule_id", entry.get("title")), observationStart=entry.get("time_start"),
-                              sourceUrl="https://cmr.earthdata.nasa.gov/search/concepts/" + entry["id"] + ".html")
+                              sourceUrl=granule_url(entry["id"]))
                 urls = [v["href"] for v in entry.get("links", []) if v.get("href", "").startswith("https://") and "B01_WTR.tif" in v.get("href", "") and "?" not in v["href"]]
                 if not urls:
                     result["status"] = "No direct WTR HTTPS asset in returned granule metadata"
@@ -55,7 +58,10 @@ def main():
             result.update(status="Reference access unavailable; no raster integrated", errorType=type(error).__name__)
         results.append(result)
         print(label, result["status"], flush=True)
-    (ROOT / "public/data/reference-probe.json").write_text(json.dumps({"maxCandidatesPerDate": 1, "results": results}, indent=2) + "\n")
+    (ROOT / "public/data/reference-probe.json").write_text(json.dumps({
+        "maxCandidatesPerDate": 1,
+        "results": results,
+    }, indent=2) + "\n")
 
 
 if __name__ == "__main__":

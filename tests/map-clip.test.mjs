@@ -1,11 +1,10 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
-import ts from "typescript";
+import { loadTypeScript } from "./support/load-typescript.mjs";
 
-const source = await readFile(new URL("../src/lib/map-clip.ts", import.meta.url), "utf8");
-const compiled = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2017 } });
-const { imageSplitPercent } = await import(`data:text/javascript;base64,${Buffer.from(compiled.outputText).toString("base64")}`);
+const { imageSplitPercent } = await loadTypeScript(
+  new URL("../src/lib/map-clip.ts", import.meta.url),
+);
 
 test("divider intersects the same viewport position after a pan", () => {
   assert.equal(imageSplitPercent(100, 800, 100, 800, 50), 50);

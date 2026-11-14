@@ -1,70 +1,51 @@
 import { analysis } from "./analysis";
 
-export type RadarBounds = [[number, number], [number, number]];
-
-export interface RadarMetadata {
-  location: string;
-  beforeDate: string;
-  afterDate: string;
-  measurement: string;
-  bounds: RadarBounds;
-  changeThresholdDb: number;
-  interpretation: string;
-}
+import type { RadarMetadata } from "./radar-metadata";
+export { parseRadarMetadata } from "./radar-metadata";
+export type { RadarBounds, RadarMetadata } from "./radar-metadata";
 
 export const radarLayers = {
   before: { label: "Before", url: analysis.assets.before.url },
   after: { label: "After", url: analysis.assets.after.url },
-  compare: { label: "Swipe", url: "" },
   change: { label: "Change", url: analysis.assets.change.url },
 } as const;
 
-export type RadarView = keyof typeof radarLayers;
-export const radarViews: RadarView[] = ["before", "after", "compare", "change"];
-export type ImageView = Exclude<RadarView, "compare">;
+export type ImageView = keyof typeof radarLayers;
+export type RadarView = ImageView | "compare";
 export const imageViews: ImageView[] = ["before", "after", "change"];
+export const radarViewOptions: { value: RadarView; label: string }[] = [
+  { value: "before", label: "Before" },
+  { value: "after", label: "After" },
+  { value: "compare", label: "Swipe" },
+  { value: "change", label: "Change" },
+];
 
-function isDate(value: unknown): value is string {
-  if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
-  const date = new Date(`${value}T00:00:00Z`);
-  return Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === value;
+export function isRadarView(value: string): value is RadarView {
+  return radarViewOptions.some((option) => option.value === value);
 }
 
-/** Reject invalid georeferencing rather than silently displaying a misplaced image. */
-export function parseRadarMetadata(value: unknown): RadarMetadata {
-  if (!value || typeof value !== "object") throw new Error("Metadata must be a JSON object.");
-  const data = value as Record<string, unknown>;
-  const bounds = data.bounds;
+export function radarViewLabel(view: RadarView) {
+  return view === "compare" ? "Swipe" : radarLayers[view].label;
+}
+
+export function observationLabel(metadata: RadarMetadata, view: RadarView) {
+  if (view === "before") return metadata.beforeDate;
+  if (view === "after") return metadata.afterDate;
+  return `${metadata.beforeDate} → ${metadata.afterDate}`;
+}
+
+export function assertMatchingAnalysis(metadata: RadarMetadata) {
+  const sameBounds = metadata.bounds.every((corner, index) =>
+    corner.every((coordinate, axis) => coordinate === analysis.bounds[index][axis]),
+  );
   if (
-    !Array.isArray(bounds) || bounds.length !== 2 ||
-    !bounds.every((point: unknown) => Array.isArray(point) && point.length === 2 &&
-      point.every((coordinate: unknown) => typeof coordinate === "number" && Number.isFinite(coordinate)) &&
-      Math.abs(point[0]) < 85.051129 && Math.abs(point[1]) <= 180) ||
-    bounds[0][0] >= bounds[1][0] || bounds[0][1] >= bounds[1][1]
+    !sameBounds ||
+    metadata.beforeDate !== analysis.beforeDate ||
+    metadata.afterDate !== analysis.afterDate ||
+    metadata.changeThresholdDb !== analysis.processing.thresholdDb
   ) {
-    throw new Error("Metadata bounds must be valid southwest / northeast latitude–longitude pairs within the map projection.");
+    throw new Error(
+      "Metadata and analysis differ. Regenerate analysis before viewing these overlays.",
+    );
   }
-  for (const field of ["location", "measurement", "interpretation"] as const) {
-    if (typeof data[field] !== "string" || !data[field].trim()) {
-      throw new Error(`Metadata is missing ${field}.`);
-    }
-  }
-  if (!isDate(data.beforeDate) || !isDate(data.afterDate) || data.beforeDate >= data.afterDate) {
-    throw new Error("Metadata must contain valid, ordered observation dates (YYYY-MM-DD).");
-  }
-  if (typeof data.changeThresholdDb !== "number" || !Number.isFinite(data.changeThresholdDb) || data.changeThresholdDb <= 0) {
-    throw new Error("Metadata must contain a positive change threshold in dB.");
-  }
-  return data as unknown as RadarMetadata;
-}
-
-export function formatObservationDate(date: string) {
-  return new Intl.DateTimeFormat("en-GB", {
-    day: "2-digit", month: "short", year: "numeric", timeZone: "UTC",
-  }).format(new Date(`${date}T00:00:00Z`));
-}
-
-export function formatCoordinate(value: number, axis: "latitude" | "longitude") {
-  const direction = axis === "latitude" ? (value < 0 ? "S" : "N") : (value < 0 ? "W" : "E");
-  return `${Math.abs(value).toFixed(4)}° ${direction}`;
 }
