@@ -1,0 +1,545 @@
+{
+  "id": "tanguar-haor",
+  "generatedAt": "2026-11-14T12:59:39+00:00",
+  "studyArea": {
+    "name": "Tanguar Haor",
+    "region": "Sunamganj, Bangladesh",
+    "aoiLonLat": [
+      90.95,
+      25.0,
+      91.2,
+      25.25
+    ],
+    "center": [
+      25.125,
+      91.075
+    ]
+  },
+  "bounds": [
+    [
+      24.99669,
+      90.945857
+    ],
+    [
+      25.253291,
+      91.203617
+    ]
+  ],
+  "before": {
+    "key": "before",
+    "date": "2026-10-28",
+    "startTimeUtc": "2026-10-28T23:21:32Z",
+    "sceneName": "NISAR_L2_PR_GCOV_034_069_A_014_4005_DHDH_A_20261028T232132_20261028T232207_P05036_N_F_J_001",
+    "sourceUrl": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GCOV_V1/NISAR_L2_PR_GCOV_034_069_A_014_4005_DHDH_A_20261028T232132_20261028T232207_P05036_N_F_J_001/NISAR_L2_PR_GCOV_034_069_A_014_4005_DHDH_A_20261028T232132_20261028T232207_P05036_N_F_J_001.h5",
+    "collection": "NISAR_L2_GCOV_V1",
+    "productVersion": "1.0.20",
+    "productDoi": "10.5067/NIL2GCOV-V1",
+    "orbit": 6569,
+    "track": 69,
+    "frame": 14,
+    "passDirection": "Ascending",
+    "lookDirection": "Left",
+    "rangeBandwidthMHz": [
+      "40+5"
+    ],
+    "nativePixelM": 10.0,
+    "polarizations": [
+      "HH",
+      "HV"
+    ],
+    "qa": {
+      "checks": 9,
+      "passed": 8,
+      "failed": [
+        "Passes all `identification` group checks?"
+      ]
+    }
+  },
+  "after": {
+    "key": "after",
+    "date": "2026-11-09",
+    "startTimeUtc": "2026-11-09T23:21:32Z",
+    "sceneName": "NISAR_L2_PR_GCOV_035_069_A_014_4005_DHDH_A_20261109T232132_20261109T232207_P05036_N_F_J_001",
+    "sourceUrl": "https://nisar.asf.earthdatacloud.nasa.gov/NISAR/NISAR_L2_GCOV_V1/NISAR_L2_PR_GCOV_035_069_A_014_4005_DHDH_A_20261109T232132_20261109T232207_P05036_N_F_J_001/NISAR_L2_PR_GCOV_035_069_A_014_4005_DHDH_A_20261109T232132_20261109T232207_P05036_N_F_J_001.h5",
+    "collection": "NISAR_L2_GCOV_V1",
+    "productVersion": "1.0.20",
+    "productDoi": "10.5067/NIL2GCOV-V1",
+    "orbit": 6742,
+    "track": 69,
+    "frame": 14,
+    "passDirection": "Ascending",
+    "lookDirection": "Left",
+    "rangeBandwidthMHz": [
+      "40+5"
+    ],
+    "nativePixelM": 10.0,
+    "polarizations": [
+      "HH",
+      "HV"
+    ],
+    "qa": {
+      "checks": 9,
+      "passed": 8,
+      "failed": [
+        "Passes all `identification` group checks?"
+      ]
+    }
+  },
+  "layers": {
+    "before": {
+      "file": "before.webp",
+      "label": "HH backscatter, before",
+      "stretchDb": [
+        -25.0,
+        -3.0
+      ]
+    },
+    "after": {
+      "file": "after.webp",
+      "label": "HH backscatter, after",
+      "stretchDb": [
+        -25.0,
+        -3.0
+      ]
+    },
+    "waterChange": {
+      "file": "water_change.png",
+      "label": "Water-like area change",
+      "classes": [
+        {
+          "value": 1,
+          "key": "persistent",
+          "label": "Low backscatter on both dates (likely persistent open water)",
+          "color": "rgba(37,99,235,0.59)"
+        },
+        {
+          "value": 2,
+          "key": "receded",
+          "label": "Low backscatter only before (likely water receded)",
+          "color": "rgba(234,138,30,0.86)"
+        },
+        {
+          "value": 3,
+          "key": "new",
+          "label": "Low backscatter only after (newly water-like)",
+          "color": "rgba(139,92,246,0.86)"
+        }
+      ]
+    },
+    "backscatterChange": {
+      "file": "backscatter_change.webp",
+      "label": "HH backscatter change (after - before)",
+      "units": "dB",
+      "hiddenBelowDb": 1.5,
+      "saturationDb": 8.0,
+      "negativeColor": "rgb(37,99,235)",
+      "positiveColor": "rgb(234,138,30)"
+    }
+  },
+  "processing": {
+    "commonGrid": "EPSG:32646 at 10 m",
+    "polarization": "HH for water mapping and change; HV for the vegetation signature",
+    "speckleFilter": "Lee 7x7, ENL from the product's numberOfLooks layer",
+    "waterMethod": "Water-like = HH below (dark-population mode + 1 sigma) AND HV within 2 dB of the HV noise floor; thresholds derived from both dates pooled; 3x3 majority clean-up; change patches smaller than 0.25 ha ignored as speckle",
+    "changeMethod": "HH log-ratio: 10*log10(after/before)",
+    "displayProjection": "EPSG:3857 (Web Mercator)"
+  },
+  "stats": {
+    "validAreaKm2": 718.34,
+    "waterThresholdDb": -15.07,
+    "waterThresholdHvDb": -22.84,
+    "thresholdDerivation": {
+      "hvNoiseFloorDb": -24.84,
+      "hvMedianDb": -22.72,
+      "hhDarkModeDb": -16.94,
+      "hhDarkSigmaDb": 1.87,
+      "fallback": false
+    },
+    "waterLikeBefore": {
+      "km2": 318.94,
+      "percent": 44.4
+    },
+    "waterLikeAfter": {
+      "km2": 296.05,
+      "percent": 41.2
+    },
+    "persistent": {
+      "km2": 285.46,
+      "percent": 39.7
+    },
+    "receded": {
+      "km2": 33.48,
+      "percent": 4.7
+    },
+    "new": {
+      "km2": 10.59,
+      "percent": 1.5
+    },
+    "netChangeKm2": -22.89,
+    "meanHhDb": {
+      "before": -12.88,
+      "after": -12.85
+    },
+    "meanHvDb": {
+      "before": -20.12,
+      "after": -20.05
+    },
+    "notableDarkening": {
+      "km2": 35.79,
+      "percent": 5.0
+    },
+    "notableBrightening": {
+      "km2": 36.61,
+      "percent": 5.1
+    },
+    "recededSignature": {
+      "hhBeforeDb": -16.76,
+      "hhAfterDb": -13.92,
+      "hvBeforeDb": -24.45,
+      "hvAfterDb": -23.25
+    }
+  },
+  "histogram": {
+    "binStartDb": [
+      -30.0,
+      -29.5,
+      -29.0,
+      -28.5,
+      -28.0,
+      -27.5,
+      -27.0,
+      -26.5,
+      -26.0,
+      -25.5,
+      -25.0,
+      -24.5,
+      -24.0,
+      -23.5,
+      -23.0,
+      -22.5,
+      -22.0,
+      -21.5,
+      -21.0,
+      -20.5,
+      -20.0,
+      -19.5,
+      -19.0,
+      -18.5,
+      -18.0,
+      -17.5,
+      -17.0,
+      -16.5,
+      -16.0,
+      -15.5,
+      -15.0,
+      -14.5,
+      -14.0,
+      -13.5,
+      -13.0,
+      -12.5,
+      -12.0,
+      -11.5,
+      -11.0,
+      -10.5,
+      -10.0,
+      -9.5,
+      -9.0,
+      -8.5,
+      -8.0,
+      -7.5,
+      -7.0,
+      -6.5,
+      -6.0,
+      -5.5,
+      -5.0,
+      -4.5,
+      -4.0,
+      -3.5,
+      -3.0,
+      -2.5,
+      -2.0,
+      -1.5,
+      -1.0,
+      -0.5
+    ],
+    "hhBeforePct": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.001,
+      0.002,
+      0.005,
+      0.012,
+      0.026,
+      0.06,
+      0.123,
+      0.221,
+      0.363,
+      0.584,
+      0.806,
+      0.951,
+      1.092,
+      1.28,
+      2.022,
+      4.623,
+      8.644,
+      9.852,
+      7.536,
+      5.027,
+      3.559,
+      2.733,
+      2.293,
+      2.065,
+      1.956,
+      1.928,
+      1.922,
+      1.935,
+      1.955,
+      1.987,
+      2.053,
+      2.143,
+      2.318,
+      2.642,
+      3.121,
+      3.724,
+      4.165,
+      4.028,
+      3.116,
+      2.052,
+      1.346,
+      0.93,
+      0.663,
+      0.48,
+      0.355,
+      0.267,
+      0.202,
+      0.157,
+      0.122,
+      0.096,
+      0.076
+    ],
+    "hhAfterPct": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.001,
+      0.002,
+      0.004,
+      0.01,
+      0.023,
+      0.052,
+      0.116,
+      0.226,
+      0.407,
+      0.697,
+      1.079,
+      1.279,
+      1.354,
+      1.43,
+      1.628,
+      2.389,
+      4.488,
+      7.114,
+      7.602,
+      5.973,
+      4.333,
+      3.346,
+      2.811,
+      2.528,
+      2.416,
+      2.379,
+      2.365,
+      2.339,
+      2.318,
+      2.285,
+      2.259,
+      2.264,
+      2.296,
+      2.41,
+      2.662,
+      3.057,
+      3.563,
+      4.027,
+      3.994,
+      3.231,
+      2.166,
+      1.399,
+      0.938,
+      0.65,
+      0.468,
+      0.345,
+      0.261,
+      0.194,
+      0.153,
+      0.12,
+      0.095,
+      0.077
+    ],
+    "hvBeforePct": [
+      0.002,
+      0.003,
+      0.008,
+      0.018,
+      0.048,
+      0.279,
+      1.736,
+      4.923,
+      7.254,
+      8.324,
+      8.8,
+      8.704,
+      6.214,
+      3.524,
+      2.507,
+      2.164,
+      1.989,
+      1.84,
+      1.685,
+      1.542,
+      1.436,
+      1.319,
+      1.224,
+      1.154,
+      1.109,
+      1.073,
+      1.05,
+      1.036,
+      1.063,
+      1.111,
+      1.2,
+      1.353,
+      1.569,
+      1.854,
+      2.223,
+      2.681,
+      3.157,
+      3.49,
+      3.291,
+      2.428,
+      1.467,
+      0.817,
+      0.478,
+      0.286,
+      0.184,
+      0.121,
+      0.082,
+      0.055,
+      0.039,
+      0.026,
+      0.017,
+      0.012,
+      0.008,
+      0.006,
+      0.005,
+      0.003,
+      0.002,
+      0.001,
+      0.001,
+      0.001
+    ],
+    "hvAfterPct": [
+      0.001,
+      0.004,
+      0.008,
+      0.022,
+      0.083,
+      0.571,
+      2.379,
+      4.941,
+      6.529,
+      7.361,
+      8.287,
+      7.966,
+      5.367,
+      3.491,
+      2.917,
+      2.671,
+      2.463,
+      2.278,
+      2.085,
+      1.897,
+      1.692,
+      1.49,
+      1.323,
+      1.192,
+      1.116,
+      1.047,
+      1.022,
+      1.014,
+      1.029,
+      1.084,
+      1.179,
+      1.327,
+      1.535,
+      1.817,
+      2.157,
+      2.591,
+      3.044,
+      3.357,
+      3.269,
+      2.564,
+      1.599,
+      0.885,
+      0.499,
+      0.29,
+      0.183,
+      0.119,
+      0.079,
+      0.054,
+      0.035,
+      0.025,
+      0.018,
+      0.012,
+      0.008,
+      0.006,
+      0.004,
+      0.003,
+      0.002,
+      0.001,
+      0.001,
+      0.001
+    ]
+  },
+  "comparability": {
+    "sameGeometry": true,
+    "sameBandwidth": true,
+    "sameMaturity": true
+  },
+  "caveats": [
+    "Low radar backscatter is consistent with smooth open water, but it is not proof of water: smooth bare soil, mudflats and radar shadow can also appear dark.",
+    "Wind or waves roughen water surfaces and can make water look bright, so some water may be missed.",
+    "Flooded vegetation can appear very bright in HH (double-bounce), so water hidden under vegetation is not captured by a darkness threshold.",
+    "Only two dates, 12 days apart, are compared. The change reflects these two moments, not a trend.",
+    "No ground truth or independent water map was used to validate the classification, so areas are estimates.",
+    "QA: both scenes passed the radar data quality checks; one metadata-only check ('identification group') is reported as FAIL by the producer."
+  ],
+  "sources": [
+    {
+      "label": "NISAR L2 GCOV (ASF DAAC)",
+      "url": "https://nisar-docs.asf.alaska.edu/gcov/"
+    },
+    {
+      "label": "Product DOI 10.5067/NIL2GCOV-V1",
+      "url": "https://doi.org/10.5067/NIL2GCOV-V1"
+    },
+    {
+      "label": "ASF Vertex data search",
+      "url": "https://search.asf.alaska.edu/"
+    },
+    {
+      "label": "NASA Space Apps 2026: Dancing with the SARs",
+      "url": "https://www.spaceappschallenge.org/2026/challenges/dancing-with-the-sars/"
+    }
+  ]
+}

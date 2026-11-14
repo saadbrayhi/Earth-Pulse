@@ -1,0 +1,10 @@
+numpy
+h5py
+rasterio
+requests
+scipy
+pillow
+matplotlib
+# live API (server/)
+fastapi
+uvicorn[standard]

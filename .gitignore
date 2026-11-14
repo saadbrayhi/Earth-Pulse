@@ -40,3 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 EarthPulse_NASA_Space_Apps_Expanded_Team_Brief_2026.pdf
+
+# python / data pipeline
+.venv/
+__pycache__/
+*.h5
+data/raw/
+server/cache/
+.netrc
