@@ -62,7 +62,7 @@ npm ci
 npm run dev
 ```
 
-Open **http://localhost:3000**, or go directly to **http://localhost:3000/explore** for the original radar study.
+Open **https://earthpulse-nasa.vercel.app/**, or go directly to **https://earthpulse-nasa.vercel.app/explore** for the original radar study.
 
 ```bash
 npm run lint
