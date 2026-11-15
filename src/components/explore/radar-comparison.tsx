@@ -2,13 +2,8 @@
 
 import dynamic from "next/dynamic";
 import { Layers3 } from "lucide-react";
-import {
-  observationLabel,
-  radarViewLabel,
-  radarViewOptions,
-  type RadarMetadata,
-  type RadarView,
-} from "@/lib/radar";
+import { observationLabel, radarViewLabel, type RadarMetadata } from "@/lib/radar";
+import { radarViewOptions, type RadarView } from "@/data/study";
 import { RangeControl } from "@/components/ui/range-control";
 import { SegmentedControl } from "@/components/ui/segmented-control";
 import { MapErrorBoundary } from "./map-error-boundary";

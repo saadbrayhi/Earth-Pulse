@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { dataFiles } from "@/data/files";
 import { assertMatchingAnalysis, parseRadarMetadata, type RadarMetadata } from "@/lib/radar";
 
 type MetadataState =
@@ -19,7 +20,7 @@ export function useRadarMetadata() {
 
     async function load() {
       try {
-        const response = await fetch("/data/metadata.json", {
+        const response = await fetch(dataFiles.metadata, {
           signal: controller.signal,
           cache: "no-store",
         });

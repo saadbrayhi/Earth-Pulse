@@ -49,12 +49,19 @@ The production build uses the supported Webpack option. Turbopack's production C
 Routes in `src/app` compose feature sections. Repeated headers, sliders, selectors and tables live in `src/components/ui`; explorer, home, insights and methodology components stay in their feature folders. `AppShell` renders on the server, with small client components for active navigation.
 
 - `src/hooks`: asynchronous metadata loading and retry state.
-- `src/lib`: typed radar configuration, pure metadata validation, formatting and swipe geometry.
+- `src/data`: shared project configuration, report-derived study facts, routes and source catalogs.
+- `src/lib`: pure metadata validation, formatting, swipe geometry and theme preferences.
 - `src/content`: reusable presentation copy and source lists.
 - `src/styles`: shared shell, explorer and page styles; explicit classes replace layout-dependent selectors.
 - `processing/scripts`: named analysis steps and a shared bounded NASA catalog client. Scientific outputs are unchanged by the refactor.
 
 Use `npm run format` to format frontend code and `npm run format:check` to check it. Keep map initialization in the client-only map boundary; controls should not recreate the map.
+
+## Shared website data
+
+`src/data` is the shared entry point for project identity, routes, file URLs, scientific source links and study facts. `study.ts` derives observation lists, product labels, category labels, thresholds and preview URLs from the generated `public/data/analysis.json`; components do not keep their own copies. `src/content` holds page metadata, stories, scientific notices and deterministic explanations. Supplemental reports are isolated from client map/chart imports.
+
+See [the data organization guide](src/data/README.md) for where to make each kind of change. The legacy metadata request still guards the explorer against mismatched dates, location, bounds or thresholds. ESLint rejects direct generated-data imports outside `src/data`.
 
 ## Data actually used
 

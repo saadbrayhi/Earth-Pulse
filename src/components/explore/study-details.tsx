@@ -1,4 +1,7 @@
 import { CalendarDays, Database, ExternalLink, MapPin } from "lucide-react";
+import { dataFiles } from "@/data/files";
+import { radarMission } from "@/data/project";
+import { analysis, observations, radarProduct } from "@/data/study";
 import { formatCoordinate, formatObservationDate } from "@/lib/format";
 import type { RadarMetadata } from "@/lib/radar";
 
@@ -10,7 +13,7 @@ export function StudySummary({ metadata }: { metadata: RadarMetadata }) {
       value: `${formatObservationDate(metadata.beforeDate)} → ${formatObservationDate(metadata.afterDate)}`,
       icon: CalendarDays,
     },
-    { label: "RADAR PRODUCT", value: "GCOV / Frequency A / HH", icon: Database },
+    { label: "RADAR PRODUCT", value: radarProduct.summary, icon: Database },
   ];
   return (
     <section className="study-summary" aria-label="Study overview">
@@ -31,13 +34,12 @@ export function ObservationSource({ metadata }: { metadata: RadarMetadata }) {
   return (
     <section className="panel observation-source p-5">
       <h2 className="text-sm font-semibold text-heading">Observation source</h2>
-      <p className="mt-4 text-sm text-heading">NASA NISAR</p>
-      <p className="mt-1 text-xs leading-5 text-muted">{metadata.measurement} · HH polarization</p>
+      <p className="mt-4 text-sm text-heading">{radarMission.displayName}</p>
+      <p className="mt-1 text-xs leading-5 text-muted">
+        {metadata.measurement} · {analysis.polarization} polarization
+      </p>
       <dl className="mt-4 space-y-2 text-xs">
-        {[
-          { label: "Before", date: metadata.beforeDate },
-          { label: "After", date: metadata.afterDate },
-        ].map(({ label, date }) => (
+        {observations.map(({ label, date }) => (
           <div key={label} className="flex justify-between">
             <dt>{label}</dt>
             <dd>
@@ -46,12 +48,9 @@ export function ObservationSource({ metadata }: { metadata: RadarMetadata }) {
           </div>
         ))}
       </dl>
-      <p className="mt-4 text-xs leading-5 text-muted">
-        Dates supplied with the source exports. Exact acquisition times and orbit metadata are
-        unavailable.
-      </p>
+      <p className="mt-4 text-xs leading-5 text-muted">{analysis.dateEvidence}</p>
       <a
-        href="/data/analysis.json"
+        href={dataFiles.analysis}
         target="_blank"
         rel="noopener noreferrer"
         className="mt-5 inline-flex items-center gap-2 text-xs text-accent"

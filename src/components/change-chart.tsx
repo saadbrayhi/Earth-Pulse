@@ -1,7 +1,7 @@
 "use client";
 
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { analysis } from "@/lib/analysis";
+import { analysis } from "@/data/study";
 import { formatNumber } from "@/lib/format";
 
 export function ChangeChart() {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Download } from "lucide-react";
-import { analysis } from "@/lib/analysis";
+import { analysis } from "@/data/study";
 import { formatNumber, signedDb } from "@/lib/format";
 import { PageHeader } from "@/components/ui/page-header";
 import { MetricCard } from "@/components/metric-card";
@@ -10,24 +10,20 @@ import { ChangeDistribution } from "@/components/insights/change-distribution";
 import { ObservationTimeline } from "@/components/insights/observation-timeline";
 import { DataQuality } from "@/components/insights/data-quality";
 import { HistogramTable } from "@/components/insights/histogram-table";
+import { pages } from "@/content/pages";
+import { dataFiles } from "@/data/files";
 
-export const metadata: Metadata = {
-  title: "Insights | EarthPulse",
-  description:
-    "Real full-resolution NISAR backscatter statistics and transparent data-quality limits for Tanguar Haor.",
-};
+export const metadata: Metadata = pages.insights.metadata;
 
 export default function InsightsPage() {
   return (
     <>
       <PageHeader
-        eyebrow="EVIDENCE, WITH CONTEXT"
-        title="What the signal says."
-        description={`Full-resolution backscatter analysis · ${analysis.beforeDate} → ${analysis.afterDate}`}
+        {...pages.insights.header}
         action={
           <a
             className="secondary-button inline-flex gap-2 items-center"
-            href="/data/analysis.json"
+            href={dataFiles.analysis}
             download
           >
             <Download size={14} /> Download results

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Droplets } from "lucide-react";
-import { analysis } from "@/lib/analysis";
+import { analysis, observationWindow } from "@/data/study";
+import { routes } from "@/data/project";
 import { formatNumber } from "@/lib/format";
 import { MetricCard } from "@/components/metric-card";
 import { ScienceNotice } from "@/components/science-notice";
@@ -15,7 +16,7 @@ export default function Home() {
         <MetricCard
           label="OBSERVATIONS"
           value={String(analysis.sources.length)}
-          detail={`${analysis.beforeDate} → ${analysis.afterDate}`}
+          detail={observationWindow}
         />
         <MetricCard
           label="VALID PAIRED PIXELS"
@@ -36,7 +37,7 @@ export default function Home() {
           <h2>Start with what the satellite observed.</h2>
           <p>Then explore what the signal can — and cannot — tell us.</p>
         </div>
-        <Link href="/explore" className="primary-button">
+        <Link href={routes.explore.href} className="primary-button">
           Open explorer <ArrowRight size={16} />
         </Link>
       </section>

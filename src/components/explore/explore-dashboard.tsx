@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import type { RadarView } from "@/lib/radar";
+import { routes } from "@/data/project";
+import { pages } from "@/content/pages";
+import type { RadarView } from "@/data/study";
 import { useRadarMetadata } from "@/hooks/use-radar-metadata";
 import { PageHeader } from "@/components/ui/page-header";
 import { ScienceNotice } from "@/components/science-notice";
@@ -22,11 +24,12 @@ export default function ExploreDashboard() {
   return (
     <>
       <PageHeader
-        eyebrow="OBSERVE. COMPARE. UNDERSTAND."
-        title="A changing landscape."
-        description="Explore a wetland through two radar observations. Slide to compare the same place."
+        {...pages.explore.header}
         action={
-          <Link href="/insights" className="secondary-button inline-flex items-center gap-2">
+          <Link
+            href={routes.insights.href}
+            className="secondary-button inline-flex items-center gap-2"
+          >
             See the analysis <ArrowRight size={14} />
           </Link>
         }
@@ -51,7 +54,7 @@ export default function ExploreDashboard() {
                 onViewChange={setView}
                 onOpacityChange={setOpacity}
               />
-              <ChangeLegend threshold={state.data.changeThresholdDb} />
+              <ChangeLegend />
               <ObservationSource metadata={state.data} />
             </aside>
           </div>

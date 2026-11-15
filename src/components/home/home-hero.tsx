@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BookOpen, Satellite } from "lucide-react";
-import { analysis } from "@/lib/analysis";
+import { analysis, observationWindow, radarProduct } from "@/data/study";
+import { radarMission, routes } from "@/data/project";
+import { homeHero } from "@/content/home";
 import { formatObservationDate } from "@/lib/format";
 
 export function HomeHero() {
@@ -14,31 +16,28 @@ export function HomeHero() {
           <br />
           has a <span>pulse.</span>
         </h1>
-        <p className="hero-description">
-          See a changing landscape through radar. EarthPulse brings NASA NISAR observations of
-          Tanguar Haor into focus, with real data and room for uncertainty.
-        </p>
+        <p className="hero-description">{homeHero.description}</p>
         <div className="hero-actions">
-          <Link className="primary-button" href="/explore">
+          <Link className="primary-button" href={routes.explore.href}>
             Explore the landscape <ArrowRight size={17} />
           </Link>
-          <Link className="text-link" href="/about">
+          <Link className="text-link" href={routes.about.href}>
             <BookOpen size={15} /> How it works
           </Link>
         </div>
         <div className="hero-caption">
           <span className="h-1.5 w-1.5 rounded-full bg-accent" /> {analysis.location} ·{" "}
-          {analysis.beforeDate} → {analysis.afterDate}
+          {observationWindow}
         </div>
       </div>
       <Link
-        href="/explore"
+        href={routes.explore.href}
         className="hero-observation"
-        aria-label="Explore actual NISAR backscatter imagery"
+        aria-label={`Explore actual ${radarMission.name} backscatter imagery`}
       >
         <Image
           src={analysis.assets.after.url}
-          alt={`Actual ${analysis.afterDate} NISAR HH radar observation of ${analysis.location}`}
+          alt={`Actual ${analysis.afterDate} ${radarMission.name} ${analysis.polarization} radar observation of ${analysis.location}`}
           fill
           priority
           unoptimized
@@ -47,7 +46,7 @@ export function HomeHero() {
         />
         <div className="hero-image-top">
           <span>
-            <Satellite size={14} /> NISAR / GCOV / HH
+            <Satellite size={14} /> {radarProduct.imageLabel}
           </span>
           <time dateTime={analysis.afterDate}>
             {formatObservationDate(analysis.afterDate).toUpperCase()}

@@ -1,25 +1,23 @@
 import { ExternalLink } from "lucide-react";
-import { analysis } from "@/lib/analysis";
+import { analysis, radarProduct } from "@/data/study";
 import { formatNumber } from "@/lib/format";
-import discovery from "../../../public/data/discovery.json";
-import referenceProbe from "../../../public/data/reference-probe.json";
-import { methodologyStories, scientificSources } from "@/content/methodology";
+import { discovery, referenceResults } from "@/data/supplemental";
+import { scientificSources } from "@/data/sources";
+import { dataFiles } from "@/data/files";
+import { project, radarMission } from "@/data/project";
+import { methodologyStories, methodologySections } from "@/content/methodology";
 import { DataTable } from "@/components/ui/data-table";
 import { MethodSection } from "./method-section";
-
-const referenceResults: { targetDate: string; status: string; sourceUrl?: string }[] =
-  referenceProbe.results;
 
 export function MethodologyContent() {
   return (
     <div className="methodology-layout">
       <nav className="methodology-nav" aria-label="Methodology sections">
-        <a href="#mission">Mission & case study</a>
-        <a href="#observations">Observations</a>
-        <a href="#processing">Processing</a>
-        <a href="#water">Water interpretation</a>
-        <a href="#references">Supplemental data</a>
-        <a href="#sources">Sources & credits</a>
+        {methodologySections.map((section) => (
+          <a key={section.id} href={`#${section.id}`}>
+            {section.title}
+          </a>
+        ))}
       </nav>
       <div className="methodology-body">
         <MethodStory id="mission" />
@@ -41,7 +39,7 @@ export function MethodologyContent() {
             {analysis.sources.map((source) => (
               <tr key={source.date}>
                 <th scope="row">{source.date}</th>
-                <td>Frequency A / HHHH</td>
+                <td>{radarProduct.measurement}</td>
                 <td>
                   {source.width} × {source.height}, {source.crs}
                 </td>
@@ -99,7 +97,7 @@ export function MethodologyContent() {
               for change colors.
             </li>
           </ol>
-          <div className="formula">ΔdB = 10 log₁₀(Pafter) − 10 log₁₀(Pbefore)</div>
+          <div className="formula">ΔdB = {analysis.processing.formula}</div>
           <p>
             The pipeline separately writes before and after dB rasters, the continuous dB
             difference, a paired-valid mask, summary statistics, input checksums and provenance. The
@@ -107,7 +105,7 @@ export function MethodologyContent() {
             computed using equal-area EPSG:6933, not degrees squared; they describe signal
             categories in the analysis rectangle, not water area.
           </p>
-          <a href="/data/analysis.json" className="text-link">
+          <a href={dataFiles.analysis} className="text-link">
             Inspect the complete computed results <ExternalLink size={13} />
           </a>
         </MethodSection>
@@ -143,8 +141,8 @@ export function MethodologyContent() {
             screening; DSWx-S1 offers a different radar-derived reference, with correlated SAR
             interpretation risks. HLS surface reflectance requires cloud and quality masking plus a
             documented water method. Historical alternatives include NASA MOD44W (annual, 250 m) and
-            JRC Global Surface Water (30 m, through 2024). Neither resolves water on the October
-            2026 dates; neither is integrated. JRC published-layer use requires EC JRC/Google
+            JRC Global Surface Water (30 m, through 2024). Neither resolves water on the supplied
+            observation dates; neither is integrated. JRC published-layer use requires EC JRC/Google
             attribution and the documented citation.
           </p>
           <p>
@@ -153,7 +151,7 @@ export function MethodologyContent() {
             polarization, orbit, processing version and geometry before inclusion. No additional
             dates are presented as a fabricated time series.
           </p>
-          <a href="/data/discovery.json" className="text-link">
+          <a href={dataFiles.discovery} className="text-link">
             Read discovery queries & candidate product IDs <ExternalLink size={13} />
           </a>
         </MethodSection>
@@ -167,10 +165,10 @@ export function MethodologyContent() {
             ))}
           </ul>
           <p>
-            Data credit: NASA/ISRO NISAR; distribution documentation: NASA ASF DAAC. EarthPulse is
-            an independent hackathon project, not an operational NASA flood-warning service.
-            Supplemental data use would require checking each product’s citation and attribution
-            terms.
+            Data credit: {radarMission.credit}; distribution documentation: NASA ASF DAAC.{" "}
+            {project.name} is an independent hackathon project, not an operational NASA
+            flood-warning service. Supplemental data use would require checking each product’s
+            citation and attribution terms.
           </p>
         </MethodSection>
         <MethodSection
@@ -201,7 +199,7 @@ export function MethodologyContent() {
             before evaluating water classification. A single catalog tile does not cover the entire
             region by assumption.
           </p>
-          <a href="/data/reference-probe.json" className="text-link">
+          <a href={dataFiles.referenceProbe} className="text-link">
             Read the bounded access-check results <ExternalLink size={13} />
           </a>
         </MethodSection>

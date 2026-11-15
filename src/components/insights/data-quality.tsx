@@ -1,7 +1,8 @@
-import { analysis } from "@/lib/analysis";
+import { analysis } from "@/data/study";
 import { formatNumber } from "@/lib/format";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { routes } from "@/data/project";
 
 export function DataQuality() {
   return (
@@ -31,7 +32,7 @@ export function DataQuality() {
           Independent water validation has not been performed. Water area, flood extent and
           classification accuracy are therefore not reported.
         </p>
-        <Link href="/about" className="text-link mt-5">
+        <Link href={routes.about.href} className="text-link mt-5">
           Read the full methodology <ArrowRight size={14} />
         </Link>
       </article>

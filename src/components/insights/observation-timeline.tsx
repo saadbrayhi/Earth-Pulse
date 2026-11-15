@@ -1,4 +1,4 @@
-import { analysis } from "@/lib/analysis";
+import { analysis, observations } from "@/data/study";
 import { formatNumber } from "@/lib/format";
 
 export function ObservationTimeline() {
@@ -9,14 +9,11 @@ export function ObservationTimeline() {
         <h2 className="section-title mt-2">Observation record</h2>
       </div>
       <div className="timeline-pair">
-        {[
-          { date: analysis.beforeDate, stats: analysis.before },
-          { date: analysis.afterDate, stats: analysis.after },
-        ].map(({ date, stats }) => (
+        {observations.map(({ date, stats }) => (
           <article key={date}>
             <time dateTime={date}>{date}</time>
             <strong>{formatNumber(stats.medianDb, 2)} dB</strong>
-            <p>Median HH backscatter, paired population</p>
+            <p>Median {analysis.polarization} backscatter, paired population</p>
           </article>
         ))}
       </div>

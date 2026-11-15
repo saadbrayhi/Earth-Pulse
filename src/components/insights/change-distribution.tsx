@@ -1,4 +1,4 @@
-import { analysis, categoryLabels } from "@/lib/analysis";
+import { changeCategories, changeThresholdDb } from "@/data/study";
 import { formatNumber } from "@/lib/format";
 import { ChangeChart } from "@/components/change-chart";
 
@@ -16,13 +16,13 @@ export function ChangeDistribution() {
         </p>
       </section>
       <section className="panel p-6">
-        <p className="eyebrow">EXPLORATORY THRESHOLD · ±{analysis.processing.thresholdDb} dB</p>
+        <p className="eyebrow">EXPLORATORY THRESHOLD · ±{changeThresholdDb} dB</p>
         <h2 className="section-title mt-3">Direction of change</h2>
         <div className="category-list">
-          {analysis.categories.map((item) => (
+          {changeCategories.map((item) => (
             <div key={item.key}>
               <div className="flex justify-between gap-3 text-sm">
-                <span>{categoryLabels[item.key]}</span>
+                <span>{item.label}</span>
                 <strong>{formatNumber(item.percentValid, 2)}%</strong>
               </div>
               <div className={`category-track ${item.key}`}>

@@ -1,7 +1,7 @@
 import { Info } from "lucide-react";
-import { analysis } from "@/lib/analysis";
+import { analysis, radarViewOptions, type RadarView } from "@/data/study";
 import { formatNumber } from "@/lib/format";
-import { isRadarView, type RadarMetadata, type RadarView } from "@/lib/radar";
+import { isRadarView, type RadarMetadata } from "@/lib/radar";
 import { RangeControl } from "@/components/ui/range-control";
 
 interface LayerSettingsProps {
@@ -39,10 +39,15 @@ export function LayerSettings({
           if (isRadarView(event.target.value)) onViewChange(event.target.value);
         }}
       >
-        <option value="compare">Both observations · swipe</option>
-        <option value="before">{metadata.beforeDate}</option>
-        <option value="after">{metadata.afterDate}</option>
-        <option value="change">Derived backscatter difference</option>
+        {radarViewOptions.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.value === "before"
+              ? metadata.beforeDate
+              : option.value === "after"
+                ? metadata.afterDate
+                : option.label}
+          </option>
+        ))}
       </select>
       <div className="mt-5">
         <RangeControl label="Overlay opacity" value={opacity} step={5} onChange={onOpacityChange} />

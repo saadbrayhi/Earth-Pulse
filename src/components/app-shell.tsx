@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Activity, ArrowUpRight, MapPin, Orbit, Satellite } from "lucide-react";
 import type { ReactNode } from "react";
-import { analysis } from "@/lib/analysis";
+import { analysis } from "@/data/study";
+import { project, radarMission, routes } from "@/data/project";
 
 import { RouteBreadcrumb, SiteNavigation } from "./layout/site-navigation";
 import { ThemeSwitcher } from "./ui/theme-switcher";
@@ -13,13 +14,14 @@ export function AppShell({ children }: { children: ReactNode }) {
         Skip to content
       </a>
       <aside className="explore-sidebar">
-        <Link href="/" className="brand" aria-label="EarthPulse home">
+        <Link href={routes.home.href} className="brand" aria-label={`${project.name} home`}>
           <span className="brand-mark">
             <Activity size={23} />
           </span>
           <span>
-            Earth<span className="text-accent">Pulse</span>
-            <span className="brand-caption">A PLANET IN PERSPECTIVE</span>
+            {project.wordmark.primary}
+            <span className="text-accent">{project.wordmark.accent}</span>
+            <span className="brand-caption">{project.tagline}</span>
           </span>
         </Link>
         <div className="sidebar-section-label">WORKSPACE</div>
@@ -39,8 +41,8 @@ export function AppShell({ children }: { children: ReactNode }) {
         </div>
         <div className="sidebar-footer mt-auto px-5 pb-6 pt-12">
           <Orbit size={22} className="mb-3 text-muted" />
-          <p className="text-xs text-muted">NASA Space Apps 2026</p>
-          <p className="mt-2 text-[11px] text-muted">Dancing with the SARs</p>
+          <p className="text-xs text-muted">{project.event}</p>
+          <p className="mt-2 text-[11px] text-muted">{project.challenge}</p>
         </div>
       </aside>
       <div className="explore-main">
@@ -49,18 +51,20 @@ export function AppShell({ children }: { children: ReactNode }) {
           <div className="header-actions">
             <ThemeSwitcher />
             <span className="source-badge">
-              <Satellite size={13} /> NASA NISAR
+              <Satellite size={13} /> {radarMission.displayName}
             </span>
           </div>
         </header>
         <main id="main-content" className="explore-content" tabIndex={-1}>
           {children}
           <footer className="page-footer">
-            <Link href="/" className="flex items-center gap-2">
-              <Activity size={13} /> EarthPulse
+            <Link href={routes.home.href} className="flex items-center gap-2">
+              <Activity size={13} /> {project.name}
             </Link>
-            <span>NASA Space Apps 2026 · {analysis.location}</span>
-            <Link href="/about" className="flex items-center gap-1">
+            <span>
+              {project.event} · {analysis.location}
+            </span>
+            <Link href={routes.about.href} className="flex items-center gap-1">
               Sources & limitations <ArrowUpRight size={12} />
             </Link>
           </footer>

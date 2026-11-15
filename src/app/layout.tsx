@@ -8,12 +8,9 @@ import "@/styles/explorer.css";
 import "@/styles/pages.css";
 import { AppShell } from "@/components/app-shell";
 import { defaultTheme, themeBootstrapScript } from "@/lib/themes";
+import { siteMetadata } from "@/content/pages";
 
-export const metadata: Metadata = {
-  title: "EarthPulse | Wetlands in perspective",
-  description:
-    "Explore real NASA NISAR radar observations of Tanguar Haor. Transparent analysis, visible change, honest uncertainty.",
-};
+export const metadata: Metadata = siteMetadata;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

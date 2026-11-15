@@ -5,8 +5,8 @@ import { latLngBounds } from "leaflet";
 import { GeoJSON, MapContainer } from "react-leaflet";
 import type { GeoJsonObject } from "geojson";
 import { Navigation2 } from "lucide-react";
-import { analysis } from "@/lib/analysis";
-import { imageViews, type RadarMetadata, type RadarView } from "@/lib/radar";
+import { analysis, imageViews, type RadarView } from "@/data/study";
+import type { RadarMetadata } from "@/lib/radar";
 import { MapControls } from "./map-controls";
 import { RadarOverlay } from "./radar-overlay";
 

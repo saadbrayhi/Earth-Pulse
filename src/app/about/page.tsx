@@ -4,22 +4,21 @@ import { ArrowRight } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
 import { MethodologyContent } from "@/components/methodology/methodology-content";
 import { ScienceNotice } from "@/components/science-notice";
+import { pages } from "@/content/pages";
+import { routes } from "@/data/project";
 
-export const metadata: Metadata = {
-  title: "Methodology & Sources | EarthPulse",
-  description:
-    "Reproducible NISAR processing, source provenance, supplemental data discovery and scientific limitations.",
-};
+export const metadata: Metadata = pages.about.metadata;
 
 export default function AboutPage() {
   return (
     <>
       <PageHeader
-        eyebrow="TRANSPARENCY IS PART OF THE PRODUCT"
-        title="Follow the evidence."
-        description="The data, the decisions, and the limits behind EarthPulse."
+        {...pages.about.header}
         action={
-          <Link href="/explore" className="secondary-button inline-flex gap-2 items-center">
+          <Link
+            href={routes.explore.href}
+            className="secondary-button inline-flex gap-2 items-center"
+          >
             Inspect the imagery <ArrowRight size={14} />
           </Link>
         }

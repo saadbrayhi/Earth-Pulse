@@ -1,4 +1,4 @@
-import { analysis } from "@/lib/analysis";
+import { analysis } from "@/data/study";
 import { formatNumber } from "@/lib/format";
 import { DataTable } from "@/components/ui/data-table";
 

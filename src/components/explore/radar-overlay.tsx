@@ -3,9 +3,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { type ImageOverlay as LeafletImageOverlay, type LeafletEventHandlerFnMap } from "leaflet";
 import { ImageOverlay, useMap } from "react-leaflet";
-import { radarLayers, type ImageView, type RadarMetadata, type RadarView } from "@/lib/radar";
+import type { RadarMetadata } from "@/lib/radar";
 import { imageSplitPercent } from "@/lib/map-clip";
 import { MapStatus } from "./map-status";
+import { radarLayers, radarProduct, type ImageView, type RadarView } from "@/data/study";
 
 type ImageStatus = "loading" | "ready" | "error";
 
@@ -88,7 +89,7 @@ export function RadarOverlay({
         zIndex={layer === "after" ? 3 : 2}
         eventHandlers={events}
         alt={`${radarLayers[layer].label} radar backscatter for ${metadata.location}`}
-        attribution="NASA NISAR · GCOV · HH"
+        attribution={radarProduct.attribution}
       />
       {active && status !== "ready" && (
         <div className="map-image-status">
