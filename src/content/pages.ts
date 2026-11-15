@@ -16,7 +16,7 @@ export const pages = {
       eyebrow: "OBSERVE. COMPARE. UNDERSTAND.",
       title: "A changing landscape.",
       description:
-        "Explore a wetland through two radar observations. Slide to compare the same place.",
+        "Inspect short-term radar changes, discover seasonal observations, and follow the evidence.",
     },
   },
   insights: {

@@ -9,3 +9,14 @@
 Before presenting, run `npm run build` and `npm start`, open all four routes, and load the three WebP overlays once. Use the browser network panel to confirm no large PNG or GeoTIFF is requested. The core experience needs no live NASA login, tile server, external fonts or AI API.
 
 Do not claim that near-total numeric coverage proves high scientific confidence, that the change threshold detects water, or that EarthPulse is an operational flood-warning system.
+
+## Extension story (2–3 minutes)
+
+Open `/explore` and choose **Explore the story**. The five chapters guide the place,
+seasonal data status, Change Detective, historical impact and future monitoring. The
+panel stays available while scrolling to evidence. In Seasonal Dynamics, explain the
+current access limitation plainly. In the radar matrix, select a direction to highlight
+its actual pixels. In the date selector, select a catalog-only candidate to demonstrate
+why an unprocessed comparison is disabled. Historical losses and the external 96.44%
+research figure are not EarthPulse measurements. Finish or close the story to explore
+freely. Keep a tested production preview available for the presentation.

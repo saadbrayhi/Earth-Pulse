@@ -13,6 +13,23 @@ EarthPulse is a NASA Space Apps 2026 project for **Dancing with the SARs**, on t
 
 The default interface uses light ivory, forest green and muted gold. Radar imagery retains a dark neutral canvas and its scientific blue/orange change colors. The palette is centralized in `src/styles/theme.css`; Tailwind utilities and charts use the same semantic variables. The core application requires no account, database, tile server, live NASA authentication, remote font or external AI API. The explanation panel is deterministic and grounded in the computed report.
 
+## Seasonal Dynamics and Change Detective
+
+The explorer now offers **Radar Change / Seasonal Dynamics**, a date registry/calendar,
+compatible-pair selection, clickable radar masks, a cited 2017/2026 impact timeline and
+**Explore the story**, a five-chapter guided demo. All existing themes remain available.
+
+**Seasonal water data is currently unavailable.** Real NASA catalog candidates were
+found, but Earthdata raster-access probes yielded no usable classified pixels. The
+interface reports this explicitly; no seasonal water area or validation accuracy is
+fabricated. The reusable classification pipeline and transition matrix are ready for
+an explicitly selected, quality-checked DSWx-HLS pair.
+
+See [the extension report](docs/seasonal-extension.md) for discovered datasets, actual
+access attempts, source-backed impact records, scientific contracts, reproduction and
+browser-test commands. Re-run the seasonal processing and rebuild after selecting real
+inputs; do not manually fill in metrics.
+
 ## Color themes
 
 Use **Theme** in the header on any page to choose Haor Ivory, Midnight Orbit, Aurora Grove, Solar Dusk, Glacier or Nebula. Palette previews show each option; three are light and three are dark. The choice is saved locally, restored before paint on reload, preserved through navigation, and synchronized across tabs. The picker supports keyboard navigation and Escape. If storage is blocked, theme selection still works for the current page session.
@@ -56,6 +73,18 @@ Routes in `src/app` compose feature sections. Repeated headers, sliders, selecto
 - `processing/scripts`: named analysis steps and a shared bounded NASA catalog client. Scientific outputs are unchanged by the refactor.
 
 Use `npm run format` to format frontend code and `npm run format:check` to check it. Keep map initialization in the client-only map boundary; controls should not recreate the map.
+
+## Linked Explore and Insights selections
+
+Select observation A/B or open a date card in the explorer calendar. The selected data
+appears in navigation and carries into Insights. Single-date views show that date's
+paired-population intensity statistics; pair views show the supported comparison.
+Catalog-only dates display an unavailable state rather than another pair's results.
+Use **Change selected observations**, **Analyze selected pair** or **Reset selection**
+on either page. The URL preserves the selection across reloads and shared links.
+
+See [selection and map lifecycle notes](docs/selection-and-map-lifecycle.md) for the
+cached-navigation overlay fix and regression commands.
 
 ## Shared website data
 
@@ -179,3 +208,12 @@ Data: **NASA/ISRO NISAR**; distribution documentation: **NASA ASF DAAC**. EarthP
 - [Ramsar Tanguar Haor information](https://rsis.ramsar.org/RISapp/files/RISrep/BD1031RIS.pdf)
 
 See the [three-minute judge walkthrough](docs/demo.md).
+
+## Public imagery for more dates
+
+The shared calendar now includes 20 downloaded official NASA GIBS MODIS Terra optical
+images across January–November 2026. Catalog-only dates can show explicitly labeled
+same-date optical context without pretending the catalog product was processed. Use
+**Use NASA optical image** to select optical records for visual comparison. Optical
+Insights provides source information and limitations, with no borrowed radar/water
+statistics. See [public imagery provenance](docs/public-imagery.md).

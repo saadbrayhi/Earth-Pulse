@@ -5,7 +5,9 @@ import "@/styles/theme-switcher.css";
 import "leaflet/dist/leaflet.css";
 import "@/styles/shell.css";
 import "@/styles/explorer.css";
+import "@/styles/seasonal.css";
 import "@/styles/pages.css";
+import { WorkspaceProvider } from "@/components/layout/workspace-provider";
 import { AppShell } from "@/components/app-shell";
 import { defaultTheme, themeBootstrapScript } from "@/lib/themes";
 import { siteMetadata } from "@/content/pages";
@@ -27,7 +29,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
       </head>
       <body className="min-h-full flex flex-col">
-        <AppShell>{children}</AppShell>
+        <WorkspaceProvider>
+          <AppShell>{children}</AppShell>
+        </WorkspaceProvider>
       </body>
     </html>
   );

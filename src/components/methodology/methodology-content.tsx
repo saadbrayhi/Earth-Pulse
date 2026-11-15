@@ -2,6 +2,7 @@ import { ExternalLink } from "lucide-react";
 import { analysis, radarProduct } from "@/data/study";
 import { formatNumber } from "@/lib/format";
 import { discovery, referenceResults } from "@/data/supplemental";
+import { seasonal, seasonalDiscovery } from "@/data/seasons";
 import { scientificSources } from "@/data/sources";
 import { dataFiles } from "@/data/files";
 import { project, radarMission } from "@/data/project";
@@ -107,6 +108,31 @@ export function MethodologyContent() {
           </p>
           <a href={dataFiles.analysis} className="text-link">
             Inspect the complete computed results <ExternalLink size={13} />
+          </a>
+        </MethodSection>
+        <MethodSection
+          id="seasonal-method"
+          eyebrow="SEASONAL DYNAMICS"
+          title="Seasonal classifications need their own evidence."
+        >
+          <p>
+            {seasonal.reason} Bounded dry/wet discovery was checked on{" "}
+            {seasonalDiscovery.checkedAt.slice(0, 10)}. Catalog overlap alone does not establish a
+            compatible observation pair.
+          </p>
+          <p>
+            {seasonal.method} Selected masks must use the same documented product and processing
+            version. The pipeline aligns categorical masks with nearest-neighbor sampling on a 30 m
+            EPSG:6933 equal-area grid and compares only pixels valid in both observations. Unknown
+            pixels are excluded and reported separately.
+          </p>
+          <p>
+            Water on two selected dates is not evidence of permanent water. Wet-only and dry-only
+            footprints describe the selected dates; seasonal inundation is not automatically an
+            unusual flood. No independent local classification validation has been performed.
+          </p>
+          <a className="text-link" href={dataFiles.seasonal}>
+            Seasonal methods, state and generated results ↗
           </a>
         </MethodSection>
         <MethodStory id="water" />

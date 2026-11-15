@@ -23,3 +23,23 @@ Keep helpers and validation in `../lib/`, and transient UI state (opacity, selec
 swipe position) in the relevant components. Import specific modules rather than adding a
 barrel that pulls supplemental reports into every client bundle. ESLint prevents direct
 `public/data` imports outside this folder.
+
+## Extension registries
+
+- `observations.ts`: one observation registry and the explicitly supported comparison pairs.
+- `seasons.ts`: generated seasonal state, discovery/access audit, radar category masks and seasonal view copy.
+- `impact.ts`: historical/context evidence with scope, date, units and source attribution.
+- `../content/story.ts`: guided narrative and conceptual roadmap.
+
+The unavailable seasonal state has `metrics: null`, no processed observations and no
+map assets. Catalog records never become viewable merely because their date is known.
+
+Interactive observation selection lives in `WorkspaceProvider`, with URL parsing and
+serialization in `../lib/workspace-selection.ts`. It stores registry IDs and view/filter
+state, not copies of observations or measurements. Explore, navigation and Insights
+consume the same selection.
+
+`public-imagery.ts` exposes the NASA GIBS acquisition manifest. Optical browse records
+and same-date context references join the existing registry in `observations.ts`.
+Catalog products retain their own identity/status; optical images never inherit
+NISAR statistics or imply classified water extent.

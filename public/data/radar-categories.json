@@ -1,0 +1,66 @@
+{
+  "bounds": [
+    [
+      25.0,
+      90.95
+    ],
+    [
+      25.25,
+      91.2
+    ]
+  ],
+  "categories": [
+    {
+      "key": "decreased",
+      "pixels": 814216,
+      "percentGrid": 11.673546831838422,
+      "asset": {
+        "url": "/data/display/radar-decreased-0b321d9b947f.webp",
+        "bytes": 82854,
+        "width": 1086,
+        "height": 1200,
+        "projection": "EPSG:3857",
+        "encoding": "lossless WebP"
+      }
+    },
+    {
+      "key": "withinThreshold",
+      "pixels": 4176663,
+      "percentGrid": 59.88149475238359,
+      "asset": {
+        "url": "/data/display/radar-withinThreshold-053e0a37f33b.webp",
+        "bytes": 154388,
+        "width": 1086,
+        "height": 1200,
+        "projection": "EPSG:3857",
+        "encoding": "lossless WebP"
+      }
+    },
+    {
+      "key": "increased",
+      "pixels": 1983832,
+      "percentGrid": 28.44252109820942,
+      "asset": {
+        "url": "/data/display/radar-increased-e18d6c226b27.webp",
+        "bytes": 126066,
+        "width": 1086,
+        "height": 1200,
+        "projection": "EPSG:3857",
+        "encoding": "lossless WebP"
+      }
+    },
+    {
+      "key": "invalid",
+      "pixels": 170,
+      "percentGrid": 0.0024373175685721378,
+      "asset": {
+        "url": "/data/display/radar-invalid-04d565152330.webp",
+        "bytes": 166,
+        "width": 1086,
+        "height": 1200,
+        "projection": "EPSG:3857",
+        "encoding": "lossless WebP"
+      }
+    }
+  ]
+}

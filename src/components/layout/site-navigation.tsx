@@ -3,30 +3,41 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BookOpen, ChartNoAxesCombined, ChevronRight, Globe2, House } from "lucide-react";
+import { useWorkspace } from "./workspace-provider";
+import { selectionHref } from "@/lib/workspace-selection";
+import { SelectedData } from "@/components/ui/selected-data";
 import { navigation, project, routes } from "@/data/project";
 
 const icons = { House, Globe2, ChartNoAxesCombined, BookOpen };
 
 export function SiteNavigation() {
   const pathname = usePathname();
+  const { selection, ready } = useWorkspace();
   return (
-    <nav className="site-navigation" aria-label="Main navigation">
-      {navigation.map(({ href, title, icon }) => {
-        const Icon = icons[icon];
-        return (
-          <Link
-            key={href}
-            className="sidebar-nav-item"
-            href={href}
-            aria-current={pathname === href ? "page" : undefined}
-          >
-            <Icon size={18} />
-            <span>{title}</span>
-            <ChevronRight size={14} className="ml-auto nav-chevron" />
-          </Link>
-        );
-      })}
-    </nav>
+    <>
+      <nav className="site-navigation" aria-label="Main navigation">
+        {navigation.map(({ href, title, icon }) => {
+          const Icon = icons[icon];
+          return (
+            <Link
+              key={href}
+              className="sidebar-nav-item"
+              href={
+                ready && (href === routes.explore.href || href === routes.insights.href)
+                  ? selectionHref(href, selection)
+                  : href
+              }
+              aria-current={pathname === href ? "page" : undefined}
+            >
+              <Icon size={18} />
+              <span>{title}</span>
+              <ChevronRight size={14} className="ml-auto nav-chevron" />
+            </Link>
+          );
+        })}
+      </nav>
+      <SelectedData compact />
+    </>
   );
 }
 

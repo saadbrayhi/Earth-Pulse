@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "status": "unavailable",
+  "reason": "NASA catalog candidates were found, but bounded Earthdata raster-access attempts returned no usable classified pixels. No seasonal pair is integrated.",
+  "observations": [],
+  "classificationPolicy": "DSWx-HLS WTR: 0 non-water; 1 open water and 2 partial surface water form the water-classified footprint; all other classes unknown. This is pixel footprint, not fractional water area.",
+  "methodSource": "https://podaac.jpl.nasa.gov/dataset/OPERA_L3_DSWX-HLS_V1"
+}

@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-11-15T12:24:01.760060+00:00",
+  "maxAssets": 2,
+  "results": [
+    {
+      "season": "dry",
+      "productId": "OPERA_L3_DSWx-HLS_T46RBP_20260101T043024Z_20260103T015551Z_L8_30_v1.1",
+      "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G3944896450-POCLOUD.html",
+      "date": "2026-01-01T04:30:24.558Z",
+      "integrated": false,
+      "status": "Raster access unavailable; no classified pixels integrated",
+      "errorType": "RuntimeError"
+    },
+    {
+      "season": "wet",
+      "productId": "OPERA_L3_DSWx-HLS_T45RZH_20260602T042927Z_20260604T023331Z_L9_30_v1.1",
+      "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4208523962-POCLOUD.html",
+      "date": "2026-06-02T04:29:27.811Z",
+      "integrated": false,
+      "status": "Raster access unavailable; no classified pixels integrated",
+      "errorType": "RuntimeError"
+    }
+  ]
+}

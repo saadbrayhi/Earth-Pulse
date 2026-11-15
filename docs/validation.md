@@ -1,25 +1,72 @@
-# Latest validation — theme switching
+# Latest validation: linked selection and cached map navigation
 
 ## Passed
 
-- `npm run format:check`: consistent frontend and test formatting.
 - `npm run lint`: no errors or warnings.
 - `npx tsc --noEmit`: successful.
-- `npm test`: fifteen checks for swipe geometry, metadata validation and theme preferences. Eight theme checks cover every supported saved value, invalid values, blocked storage, change notifications, cleanup, cross-tab synchronization, development restoration and the deterministic server snapshot.
-- `.venv/bin/python -m unittest discover -s processing/tests -v`: ten checks covering power conversion, alignment, equal-area accounting, threshold equality, histogram tails, source/result consistency, change palette integrity and bounded catalog requests.
-- `npm run build`: compiled and statically prerendered `/`, `/explore`, `/insights` and `/about` using Webpack.
-- `node tests/http-smoke.mjs http://127.0.0.1:3001`: all pages expose the theme picker and six choices. Navigation, source-derived values, compiled styles, JSON, exact preview bytes/hashes, cache headers and 404s pass. A separate production check executed the served head script for all six stored choices and verified all six preview palettes were delivered.
-- The refactored processing pipeline regenerated an **identical SHA-256 analysis report**, including the same content-addressed preview manifest. Original scientific inputs, legacy outputs and the legacy preparation script have no diff.
-- `git diff --check`: successful.
+- `npm run format:check`: all frontend/test files formatted.
+- `npm test`: 27 tests covering geometry, metadata, themes, shared data, registered
+  comparison guards, category accounting and seasonal-report acceptance/rejection.
+- `.venv/bin/python -m unittest discover -s processing/tests -v`: 18 tests covering
+  existing radar calculations plus water-class decoding, unknown exclusion, net-change
+  signs, conservation, categorical previews and the complete seasonal pipeline on
+  isolated temporary test fixtures. No fixture data is published as an observation.
+- `npm run build`: Webpack production build; all four routes statically prerendered.
+- Production HTTP smoke: all four pages, shared styles, generated JSON, all seven radar
+  previews/masks, exact image bytes/content hashes, immutable image caching and 404s.
+- Isolated headless Chrome: actual original overlays; Before/After/Change/Swipe;
+  pointer and keyboard divider movement; one reused map during mode switching;
+  seasonal unavailable controls; actual category highlights; disabled catalog-only
+  comparisons; calendar filtering; all five story chapters; all six themes; mobile
+  horizontal fit at 390 px; controlled metadata/image errors and successful Retry.
+  No runtime, hydration or map-initialization errors were recorded.
+- Desktop map, mobile explorer and historical-impact screenshots visually inspected.
+- Four radar category masks match unchanged full-grid counts. Original source TIFFs,
+  original report/metadata/PNGs and legacy preparation script are unchanged.
 
-## Scope and limitations
+The managed Browser connection was unavailable. Interaction QA instead used installed
+Chrome with an isolated temporary profile and no access to personal browser sessions.
+Screenshots are saved under the temporary path printed by `tests/browser-smoke.mjs`.
+This is not a complete assistive-technology, cross-browser or scientific accuracy audit.
 
-Selected text/background pairs were checked across all six palettes and measured at least 4.5:1. This is a palette check, not a complete accessibility audit. The theme script runs before content is painted, while a deterministic external-store snapshot keeps React hydration consistent.
+## Remaining limitation
 
-The app shell renders on the server. Only navigation and interactive feature components require client rendering. Shared controls provide associated labels, value outputs, descriptions and keyboard-accessible native inputs. The map stays behind a client-only dynamic import; retry recreates the viewer without reloading the site.
+NASA catalog discovery succeeded. Bounded DSWx raster-access probes did not yield
+usable pixels, so the seasonal result is explicitly unavailable. No selected wet/dry
+analysis pair, water-area results or local classification accuracy are claimed. The
+classified-data branch was exercised with synthetic temporary processing/schema
+fixtures, not a real seasonal observation pair or a real seasonal map in the browser.
 
-No managed Browser connection was available. Screenshot review, actual pointer interactions, visual responsive checks, browser-console checks and assistive-technology testing are **not claimed**. Geometry and HTTP checks do not substitute for that browser pass.
+External historical claims carry source, date and geographic scope. Some external
+publishers block automated requests; the local HTTP/browser checks do not promise
+continued availability of their websites. EarthPulse is not an operational warning system.
+No deployment, commit or push was performed.
 
-The initial sandboxed build could not read its TypeScript subprocess output; the build passed outside the sandbox. No framework package or validation check was bypassed.
+See [the extension report](seasonal-extension.md) for source records, scientific
+contracts, files changed, discovered products, blockers and reproduction commands.
 
-No supplemental raster was downloaded during the refactor. The scientific interpretation remains radar change, not validated water or flood extent. No deployment, commit, push or pull request was performed.
+## Linked-selection regression
+
+- Development (Turbopack) and production (Webpack): selecting October 30 in the calendar
+  shows its actual image and single-date paired-population intensity metrics on Insights.
+- Supported pair selection restores the full October difference statistics. Catalog-only
+  records show unavailable data, never substitute the October measurements.
+- The selection is visible in navigation and on both pages; native URL updates and
+  internal links preserve IDs, focused date, mode, view and calendar filters. Reload
+  restoration passed. Unit tests cover round trips and invalid URL parameters.
+- Repeated client navigation through all four routes passed without the reported
+  `appendChild` crash, hydration errors or duplicate-map initialization errors.
+- `tests/workspace-browser.mjs` covers these scenarios using the shared isolated Chrome
+  harness. The original map/theme/mobile/error-recovery smoke also passed after the fix.
+
+See [selection and lifecycle notes](selection-and-map-lifecycle.md) for implementation
+and reproduction details. Processing inputs, scientific calculations and imagery were
+not changed in this follow-up.
+
+## Public optical imagery extension
+
+30 frontend tests, lint, TypeScript, formatting and production build passed. All 20
+new optical assets passed HTTP byte/hash/cache checks. Isolated Chrome verified the
+June 2 catalog-to-optical context fallback, shared navigation, optical Insights with
+no borrowed radar statistics, and a two-date optical comparison. Source acquisition
+records and rejected dates are documented in `public-imagery.md`.

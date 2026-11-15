@@ -5,15 +5,27 @@ import { analysis, observations, radarProduct } from "@/data/study";
 import { formatCoordinate, formatObservationDate } from "@/lib/format";
 import type { RadarMetadata } from "@/lib/radar";
 
-export function StudySummary({ metadata }: { metadata: RadarMetadata }) {
+export function StudySummary({
+  metadata,
+  comparison,
+}: {
+  metadata: RadarMetadata;
+  comparison?: { window: string; product: string };
+}) {
   const items = [
     { label: "STUDY AREA", value: metadata.location, icon: MapPin },
     {
       label: "OBSERVATION WINDOW",
-      value: `${formatObservationDate(metadata.beforeDate)} → ${formatObservationDate(metadata.afterDate)}`,
+      value:
+        comparison?.window ??
+        `${formatObservationDate(metadata.beforeDate)} → ${formatObservationDate(metadata.afterDate)}`,
       icon: CalendarDays,
     },
-    { label: "RADAR PRODUCT", value: radarProduct.summary, icon: Database },
+    {
+      label: comparison ? "SELECTED PRODUCT" : "RADAR PRODUCT",
+      value: comparison?.product ?? radarProduct.summary,
+      icon: Database,
+    },
   ];
   return (
     <section className="study-summary" aria-label="Study overview">

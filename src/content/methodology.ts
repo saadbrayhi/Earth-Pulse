@@ -5,6 +5,7 @@ export const methodologySections = [
   { id: "mission", title: "Mission & case study" },
   { id: "observations", title: "Observations" },
   { id: "processing", title: "Processing" },
+  { id: "seasonal-method", title: "Seasonal analysis" },
   { id: "water", title: "Water interpretation" },
   { id: "references", title: "Supplemental data" },
   { id: "sources", title: "Sources & credits" },

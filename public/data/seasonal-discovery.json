@@ -1,0 +1,539 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-15T12:55:35.158181+00:00",
+  "bounds": [
+    [
+      25.0,
+      90.95
+    ],
+    [
+      25.25,
+      91.2
+    ]
+  ],
+  "selectionStatus": "No seasonal classification pair selected or integrated",
+  "maxSamplesPerQuery": 5,
+  "imageryDownloaded": false,
+  "results": [
+    {
+      "season": "dry",
+      "window": [
+        "2026-01-01",
+        "2026-02-28"
+      ],
+      "collection": "NISAR_L2_GCOV_V1",
+      "queryUrl": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=NISAR_L2_GCOV_V1&bounding_box=90.95%2C25.0%2C91.2%2C25.25&temporal=2026-01-01T00%3A00%3A00Z%2C2026-02-28T23%3A59%3A59Z&page_size=5&sort_key=start_date",
+      "status": "searched",
+      "hits": 0,
+      "candidates": []
+    },
+    {
+      "season": "dry",
+      "window": [
+        "2026-01-01",
+        "2026-02-28"
+      ],
+      "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+      "queryUrl": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=NISAR_L2_GCOV_PROVISIONAL_V1&bounding_box=90.95%2C25.0%2C91.2%2C25.25&temporal=2026-01-01T00%3A00%3A00Z%2C2026-02-28T23%3A59%3A59Z&page_size=5&sort_key=start_date",
+      "status": "searched",
+      "hits": 0,
+      "candidates": []
+    },
+    {
+      "season": "dry",
+      "window": [
+        "2026-01-01",
+        "2026-02-28"
+      ],
+      "collection": "NISAR_L2_GCOV_BETA_V1",
+      "queryUrl": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=NISAR_L2_GCOV_BETA_V1&bounding_box=90.95%2C25.0%2C91.2%2C25.25&temporal=2026-01-01T00%3A00%3A00Z%2C2026-02-28T23%3A59%3A59Z&page_size=5&sort_key=start_date",
+      "status": "searched",
+      "hits": 0,
+      "candidates": []
+    },
+    {
+      "season": "dry",
+      "window": [
+        "2026-01-01",
+        "2026-02-28"
+      ],
+      "collection": "OPERA_L3_DSWX-HLS_V1",
+      "queryUrl": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=OPERA_L3_DSWX-HLS_V1&bounding_box=90.95%2C25.0%2C91.2%2C25.25&temporal=2026-01-01T00%3A00%3A00Z%2C2026-02-28T23%3A59%3A59Z&page_size=5&sort_key=start_date",
+      "status": "searched",
+      "hits": 245,
+      "candidates": [
+        {
+          "id": "G3944896430-POCLOUD",
+          "productId": "OPERA_L3_DSWx-HLS_T45RZH_20260101T043024Z_20260103T015549Z_L8_30_v1.1",
+          "start": "2026-01-01T04:30:24.558Z",
+          "end": "2026-01-01T04:30:24.558Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G3944896430-POCLOUD.html",
+          "cloudCover": "89",
+          "boxes": [
+            "24.3166999 89.9082482 25.3316175 91.0204056"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZH_20260101T043024Z_20260103T015549Z_L8_30_v1.1_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZH_20260101T043024Z_20260103T015549Z_L8_30_v1.1_B02_BWTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZH_20260101T043024Z_20260103T015549Z_L8_30_v1.1_B05_WTR-1.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZH_20260101T043024Z_20260103T015549Z_L8_30_v1.1_B06_WTR-2.tif"
+          ],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G3944896443-POCLOUD",
+          "productId": "OPERA_L3_DSWx-HLS_T46RBN_20260101T043024Z_20260103T015551Z_L8_30_v1.1",
+          "start": "2026-01-01T04:30:24.558Z",
+          "end": "2026-01-01T04:30:24.558Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G3944896443-POCLOUD.html",
+          "cloudCover": "98",
+          "boxes": [
+            "24.3393936 89.9712542 25.3480393 91.0767184"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBN_20260101T043024Z_20260103T015551Z_L8_30_v1.1_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBN_20260101T043024Z_20260103T015551Z_L8_30_v1.1_B02_BWTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBN_20260101T043024Z_20260103T015551Z_L8_30_v1.1_B05_WTR-1.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBN_20260101T043024Z_20260103T015551Z_L8_30_v1.1_B06_WTR-2.tif"
+          ],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G3944896450-POCLOUD",
+          "productId": "OPERA_L3_DSWx-HLS_T46RBP_20260101T043024Z_20260103T015551Z_L8_30_v1.1",
+          "start": "2026-01-01T04:30:24.558Z",
+          "end": "2026-01-01T04:30:24.558Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G3944896450-POCLOUD.html",
+          "cloudCover": "36",
+          "boxes": [
+            "25.2412718 89.9482468 26.2505272 91.0627342"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBP_20260101T043024Z_20260103T015551Z_L8_30_v1.1_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBP_20260101T043024Z_20260103T015551Z_L8_30_v1.1_B02_BWTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBP_20260101T043024Z_20260103T015551Z_L8_30_v1.1_B05_WTR-1.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBP_20260101T043024Z_20260103T015551Z_L8_30_v1.1_B06_WTR-2.tif"
+          ],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G3944896464-POCLOUD",
+          "productId": "OPERA_L3_DSWx-HLS_T45RZJ_20260101T043024Z_20260103T015551Z_L8_30_v1.1",
+          "start": "2026-01-01T04:30:24.558Z",
+          "end": "2026-01-01T04:30:24.558Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G3944896464-POCLOUD.html",
+          "cloudCover": "38",
+          "boxes": [
+            "25.2176239 89.9293735 26.2334347 91.0509022"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZJ_20260101T043024Z_20260103T015551Z_L8_30_v1.1_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZJ_20260101T043024Z_20260103T015551Z_L8_30_v1.1_B02_BWTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZJ_20260101T043024Z_20260103T015551Z_L8_30_v1.1_B05_WTR-1.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZJ_20260101T043024Z_20260103T015551Z_L8_30_v1.1_B06_WTR-2.tif"
+          ],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G3946440266-POCLOUD",
+          "productId": "OPERA_L3_DSWx-HLS_T46RBN_20260102T042424Z_20260104T033953Z_L9_30_v1.1",
+          "start": "2026-01-02T04:24:24.840Z",
+          "end": "2026-01-02T04:24:24.840Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G3946440266-POCLOUD.html",
+          "cloudCover": "87",
+          "boxes": [
+            "24.3393936 89.9712542 25.3480393 91.0767184"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBN_20260102T042424Z_20260104T033953Z_L9_30_v1.1_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBN_20260102T042424Z_20260104T033953Z_L9_30_v1.1_B02_BWTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBN_20260102T042424Z_20260104T033953Z_L9_30_v1.1_B05_WTR-1.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBN_20260102T042424Z_20260104T033953Z_L9_30_v1.1_B06_WTR-2.tif"
+          ],
+          "processingStatus": "catalog-only"
+        }
+      ]
+    },
+    {
+      "season": "dry",
+      "window": [
+        "2026-01-01",
+        "2026-02-28"
+      ],
+      "collection": "OPERA_L3_DSWX-S1_V1",
+      "queryUrl": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=OPERA_L3_DSWX-S1_V1&bounding_box=90.95%2C25.0%2C91.2%2C25.25&temporal=2026-01-01T00%3A00%3A00Z%2C2026-02-28T23%3A59%3A59Z&page_size=5&sort_key=start_date",
+      "status": "searched",
+      "hits": 122,
+      "candidates": [
+        {
+          "id": "G3948940498-POCLOUD",
+          "productId": "OPERA_L3_DSWx-S1_T46RCN_20260102T115632Z_20260106T060953Z_S1A_30_v1.0",
+          "start": "2026-01-02T11:56:45.000Z",
+          "end": "2026-01-02T11:57:03.000Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G3948940498-POCLOUD.html",
+          "cloudCover": null,
+          "boxes": [
+            "24.3557157 90.9639937 25.3577699 92.0623534"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T46RCN_20260102T115632Z_20260106T060953Z_S1A_30_v1.0_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T46RCN_20260102T115632Z_20260106T060953Z_S1A_30_v1.0_B02_BWTR.tif"
+          ],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G3948928569-POCLOUD",
+          "productId": "OPERA_L3_DSWx-S1_T45RZH_20260102T115632Z_20260106T060953Z_S1A_30_v1.0",
+          "start": "2026-01-02T11:56:48.000Z",
+          "end": "2026-01-02T11:57:02.000Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G3948928569-POCLOUD.html",
+          "cloudCover": null,
+          "boxes": [
+            "24.3166999 89.9082482 25.3316175 91.0204056"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T45RZH_20260102T115632Z_20260106T060953Z_S1A_30_v1.0_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T45RZH_20260102T115632Z_20260106T060953Z_S1A_30_v1.0_B02_BWTR.tif"
+          ],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G3948941160-POCLOUD",
+          "productId": "OPERA_L3_DSWx-S1_T46RBN_20260102T115632Z_20260106T060953Z_S1A_30_v1.0",
+          "start": "2026-01-02T11:56:48.000Z",
+          "end": "2026-01-02T11:57:02.000Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G3948941160-POCLOUD.html",
+          "cloudCover": null,
+          "boxes": [
+            "24.3393936 89.9712542 25.3480393 91.0767184"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T46RBN_20260102T115632Z_20260106T060953Z_S1A_30_v1.0_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T46RBN_20260102T115632Z_20260106T060953Z_S1A_30_v1.0_B02_BWTR.tif"
+          ],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G4224555317-POCLOUD",
+          "productId": "OPERA_L3_DSWx-S1_T46RBP_20260104T234700Z_20260623T000859Z_S1A_30_v1.0",
+          "start": "2026-01-04T23:47:33.000Z",
+          "end": "2026-01-04T23:47:44.000Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4224555317-POCLOUD.html",
+          "cloudCover": null,
+          "boxes": [
+            "25.2412718 89.9482468 26.2505272 91.0627342"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T46RBP_20260104T234700Z_20260623T000859Z_S1A_30_v1.0_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T46RBP_20260104T234700Z_20260623T000859Z_S1A_30_v1.0_B02_BWTR.tif"
+          ],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G4224556715-POCLOUD",
+          "productId": "OPERA_L3_DSWx-S1_T46RBP_20260104T234700Z_20260623T001018Z_S1A_30_v1.0",
+          "start": "2026-01-04T23:47:33.000Z",
+          "end": "2026-01-04T23:47:44.000Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4224556715-POCLOUD.html",
+          "cloudCover": null,
+          "boxes": [
+            "25.2412718 89.9482468 26.2505272 91.0627342"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T46RBP_20260104T234700Z_20260623T001018Z_S1A_30_v1.0_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T46RBP_20260104T234700Z_20260623T001018Z_S1A_30_v1.0_B02_BWTR.tif"
+          ],
+          "processingStatus": "catalog-only"
+        }
+      ]
+    },
+    {
+      "season": "wet",
+      "window": [
+        "2026-06-01",
+        "2026-09-30"
+      ],
+      "collection": "NISAR_L2_GCOV_V1",
+      "queryUrl": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=NISAR_L2_GCOV_V1&bounding_box=90.95%2C25.0%2C91.2%2C25.25&temporal=2026-06-01T00%3A00%3A00Z%2C2026-09-30T23%3A59%3A59Z&page_size=5&sort_key=start_date",
+      "status": "searched",
+      "hits": 0,
+      "candidates": []
+    },
+    {
+      "season": "wet",
+      "window": [
+        "2026-06-01",
+        "2026-09-30"
+      ],
+      "collection": "NISAR_L2_GCOV_PROVISIONAL_V1",
+      "queryUrl": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=NISAR_L2_GCOV_PROVISIONAL_V1&bounding_box=90.95%2C25.0%2C91.2%2C25.25&temporal=2026-06-01T00%3A00%3A00Z%2C2026-09-30T23%3A59%3A59Z&page_size=5&sort_key=start_date",
+      "status": "searched",
+      "hits": 24,
+      "candidates": [
+        {
+          "id": "G4240316601-ASF",
+          "productId": "NISAR_L2_PR_GCOV_023_069_A_014_4005_DHDH_A_20260618T232135_20260618T232210_P05023_N_F_J_001",
+          "start": "2026-06-18T23:21:35.000Z",
+          "end": "2026-06-18T23:22:10.999Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4240316601-ASF.html",
+          "cloudCover": null,
+          "boxes": [],
+          "assets": [],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G4250855208-ASF",
+          "productId": "NISAR_L2_PR_GCOV_023_091_D_076_2005_QPDH_A_20260620T123424_20260620T123459_P05023_N_F_J_001",
+          "start": "2026-06-20T12:34:24.000Z",
+          "end": "2026-06-20T12:34:59.999Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4250855208-ASF.html",
+          "cloudCover": null,
+          "boxes": [],
+          "assets": [],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G4246499130-ASF",
+          "productId": "NISAR_L2_PR_GCOV_023_141_A_014_4005_DHDH_A_20260623T231316_20260623T231350_P05023_N_F_J_001",
+          "start": "2026-06-23T23:13:16.000Z",
+          "end": "2026-06-23T23:13:50.999Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4246499130-ASF.html",
+          "cloudCover": null,
+          "boxes": [],
+          "assets": [],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G4248910017-ASF",
+          "productId": "NISAR_L2_PR_GCOV_024_069_A_014_4005_DHDH_A_20260630T232134_20260630T232209_P05023_N_F_J_001",
+          "start": "2026-06-30T23:21:34.000Z",
+          "end": "2026-06-30T23:22:09.999Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4248910017-ASF.html",
+          "cloudCover": null,
+          "boxes": [],
+          "assets": [],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G4245855664-ASF",
+          "productId": "NISAR_L2_PR_GCOV_024_091_D_076_4005_DHDH_A_20260702T123423_20260702T123458_P05023_N_F_J_001",
+          "start": "2026-07-02T12:34:23.000Z",
+          "end": "2026-07-02T12:34:58.999Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4245855664-ASF.html",
+          "cloudCover": null,
+          "boxes": [],
+          "assets": [],
+          "processingStatus": "catalog-only"
+        }
+      ]
+    },
+    {
+      "season": "wet",
+      "window": [
+        "2026-06-01",
+        "2026-09-30"
+      ],
+      "collection": "NISAR_L2_GCOV_BETA_V1",
+      "queryUrl": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=NISAR_L2_GCOV_BETA_V1&bounding_box=90.95%2C25.0%2C91.2%2C25.25&temporal=2026-06-01T00%3A00%3A00Z%2C2026-09-30T23%3A59%3A59Z&page_size=5&sort_key=start_date",
+      "status": "searched",
+      "hits": 0,
+      "candidates": []
+    },
+    {
+      "season": "wet",
+      "window": [
+        "2026-06-01",
+        "2026-09-30"
+      ],
+      "collection": "OPERA_L3_DSWX-HLS_V1",
+      "queryUrl": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=OPERA_L3_DSWX-HLS_V1&bounding_box=90.95%2C25.0%2C91.2%2C25.25&temporal=2026-06-01T00%3A00%3A00Z%2C2026-09-30T23%3A59%3A59Z&page_size=5&sort_key=start_date",
+      "status": "searched",
+      "hits": 273,
+      "candidates": [
+        {
+          "id": "G4208523962-POCLOUD",
+          "productId": "OPERA_L3_DSWx-HLS_T45RZH_20260602T042927Z_20260604T023331Z_L9_30_v1.1",
+          "start": "2026-06-02T04:29:27.811Z",
+          "end": "2026-06-02T04:29:27.811Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4208523962-POCLOUD.html",
+          "cloudCover": "84",
+          "boxes": [
+            "24.3166999 89.9082482 25.3316175 91.0204056"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZH_20260602T042927Z_20260604T023331Z_L9_30_v1.1_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZH_20260602T042927Z_20260604T023331Z_L9_30_v1.1_B02_BWTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZH_20260602T042927Z_20260604T023331Z_L9_30_v1.1_B05_WTR-1.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZH_20260602T042927Z_20260604T023331Z_L9_30_v1.1_B06_WTR-2.tif"
+          ],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G4208356157-POCLOUD",
+          "productId": "OPERA_L3_DSWx-HLS_T46RBP_20260602T043659Z_20260604T203319Z_S2B_30_v1.1",
+          "start": "2026-06-02T04:51:19.473Z",
+          "end": "2026-06-02T04:51:19.473Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4208356157-POCLOUD.html",
+          "cloudCover": "100",
+          "boxes": [
+            "25.2412718 89.9482468 26.2505272 91.0627342"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBP_20260602T043659Z_20260604T203319Z_S2B_30_v1.1_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBP_20260602T043659Z_20260604T203319Z_S2B_30_v1.1_B02_BWTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBP_20260602T043659Z_20260604T203319Z_S2B_30_v1.1_B05_WTR-1.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBP_20260602T043659Z_20260604T203319Z_S2B_30_v1.1_B06_WTR-2.tif"
+          ],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G4208356103-POCLOUD",
+          "productId": "OPERA_L3_DSWx-HLS_T45RZJ_20260602T043659Z_20260604T203329Z_S2B_30_v1.1",
+          "start": "2026-06-02T04:51:19.977Z",
+          "end": "2026-06-02T04:51:19.977Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4208356103-POCLOUD.html",
+          "cloudCover": "100",
+          "boxes": [
+            "25.2176239 89.9293735 26.2334347 91.0509022"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZJ_20260602T043659Z_20260604T203329Z_S2B_30_v1.1_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZJ_20260602T043659Z_20260604T203329Z_S2B_30_v1.1_B02_BWTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZJ_20260602T043659Z_20260604T203329Z_S2B_30_v1.1_B05_WTR-1.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZJ_20260602T043659Z_20260604T203329Z_S2B_30_v1.1_B06_WTR-2.tif"
+          ],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G4208581300-POCLOUD",
+          "productId": "OPERA_L3_DSWx-HLS_T46RBN_20260602T043659Z_20260604T203330Z_S2B_30_v1.1",
+          "start": "2026-06-02T04:51:30.266Z",
+          "end": "2026-06-02T04:51:30.266Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4208581300-POCLOUD.html",
+          "cloudCover": "100",
+          "boxes": [
+            "24.3393936 89.9712542 25.3480393 91.0767184"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBN_20260602T043659Z_20260604T203330Z_S2B_30_v1.1_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBN_20260602T043659Z_20260604T203330Z_S2B_30_v1.1_B02_BWTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBN_20260602T043659Z_20260604T203330Z_S2B_30_v1.1_B05_WTR-1.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T46RBN_20260602T043659Z_20260604T203330Z_S2B_30_v1.1_B06_WTR-2.tif"
+          ],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G4208411692-POCLOUD",
+          "productId": "OPERA_L3_DSWx-HLS_T45RZH_20260602T043659Z_20260604T203259Z_S2B_30_v1.1",
+          "start": "2026-06-02T04:51:31.967Z",
+          "end": "2026-06-02T04:51:31.967Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4208411692-POCLOUD.html",
+          "cloudCover": "85",
+          "boxes": [
+            "24.3166999 89.9082482 25.3316175 91.0204056"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZH_20260602T043659Z_20260604T203259Z_S2B_30_v1.1_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZH_20260602T043659Z_20260604T203259Z_S2B_30_v1.1_B02_BWTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZH_20260602T043659Z_20260604T203259Z_S2B_30_v1.1_B05_WTR-1.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-HLS_V1/OPERA_L3_DSWx-HLS_T45RZH_20260602T043659Z_20260604T203259Z_S2B_30_v1.1_B06_WTR-2.tif"
+          ],
+          "processingStatus": "catalog-only"
+        }
+      ]
+    },
+    {
+      "season": "wet",
+      "window": [
+        "2026-06-01",
+        "2026-09-30"
+      ],
+      "collection": "OPERA_L3_DSWX-S1_V1",
+      "queryUrl": "https://cmr.earthdata.nasa.gov/search/granules.json?short_name=OPERA_L3_DSWX-S1_V1&bounding_box=90.95%2C25.0%2C91.2%2C25.25&temporal=2026-06-01T00%3A00%3A00Z%2C2026-09-30T23%3A59%3A59Z&page_size=5&sort_key=start_date",
+      "status": "searched",
+      "hits": 114,
+      "candidates": [
+        {
+          "id": "G4208449970-POCLOUD",
+          "productId": "OPERA_L3_DSWx-S1_T46RBP_20260602T235510Z_20260603T155835Z_S1A_30_v1.0",
+          "start": "2026-06-02T23:55:27.000Z",
+          "end": "2026-06-02T23:55:50.000Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4208449970-POCLOUD.html",
+          "cloudCover": null,
+          "boxes": [
+            "25.2412718 89.9482468 26.2505272 91.0627342"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T46RBP_20260602T235510Z_20260603T155835Z_S1A_30_v1.0_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T46RBP_20260602T235510Z_20260603T155835Z_S1A_30_v1.0_B02_BWTR.tif"
+          ],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G4291762364-POCLOUD",
+          "productId": "OPERA_L3_DSWx-S1_T46RBP_20260602T235510Z_20260829T161045Z_S1A_30_v1.0",
+          "start": "2026-06-02T23:55:27.000Z",
+          "end": "2026-06-02T23:55:50.000Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4291762364-POCLOUD.html",
+          "cloudCover": null,
+          "boxes": [
+            "25.2412718 89.9482468 26.2505272 91.0627342"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T46RBP_20260602T235510Z_20260829T161045Z_S1A_30_v1.0_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T46RBP_20260602T235510Z_20260829T161045Z_S1A_30_v1.0_B02_BWTR.tif"
+          ],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G4306064564-POCLOUD",
+          "productId": "OPERA_L3_DSWx-S1_T46RBP_20260602T235510Z_20260910T223206Z_S1A_30_v1.0",
+          "start": "2026-06-02T23:55:27.000Z",
+          "end": "2026-06-02T23:55:50.000Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4306064564-POCLOUD.html",
+          "cloudCover": null,
+          "boxes": [
+            "25.2412718 89.9482468 26.2505272 91.0627342"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T46RBP_20260602T235510Z_20260910T223206Z_S1A_30_v1.0_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T46RBP_20260602T235510Z_20260910T223206Z_S1A_30_v1.0_B02_BWTR.tif"
+          ],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G4308925925-POCLOUD",
+          "productId": "OPERA_L3_DSWx-S1_T46RBP_20260602T235510Z_20260912T173358Z_S1A_30_v1.0",
+          "start": "2026-06-02T23:55:27.000Z",
+          "end": "2026-06-02T23:55:50.000Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4308925925-POCLOUD.html",
+          "cloudCover": null,
+          "boxes": [
+            "25.2412718 89.9482468 26.2505272 91.0627342"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T46RBP_20260602T235510Z_20260912T173358Z_S1A_30_v1.0_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T46RBP_20260602T235510Z_20260912T173358Z_S1A_30_v1.0_B02_BWTR.tif"
+          ],
+          "processingStatus": "catalog-only"
+        },
+        {
+          "id": "G4291762347-POCLOUD",
+          "productId": "OPERA_L3_DSWx-S1_T45RZJ_20260602T235510Z_20260829T161045Z_S1A_30_v1.0",
+          "start": "2026-06-02T23:55:28.000Z",
+          "end": "2026-06-02T23:55:50.000Z",
+          "sourceUrl": "https://cmr.earthdata.nasa.gov/search/concepts/G4291762347-POCLOUD.html",
+          "cloudCover": null,
+          "boxes": [
+            "25.2176239 89.9293735 26.2334347 91.0509022"
+          ],
+          "assets": [
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T45RZJ_20260602T235510Z_20260829T161045Z_S1A_30_v1.0_B01_WTR.tif",
+            "https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-protected/OPERA_L3_DSWX-S1_V1/OPERA_L3_DSWx-S1_T45RZJ_20260602T235510Z_20260829T161045Z_S1A_30_v1.0_B02_BWTR.tif"
+          ],
+          "processingStatus": "catalog-only"
+        }
+      ]
+    }
+  ]
+}

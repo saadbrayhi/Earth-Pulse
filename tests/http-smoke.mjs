@@ -41,8 +41,16 @@ for (const [path, text] of pages) {
   for (const route of ["/explore", "/insights", "/about"]) {
     assert.ok(html.includes(`href="${route}"`), `Navigation to ${route} must exist on ${path}`);
   }
-  if (path === "/explore")
+  if (path === "/explore") {
     assert.ok(!html.includes("leaflet-container"), "Leaflet must remain client-only");
+    for (const feature of [
+      "Change Detective Matrix",
+      "Why these changes matter",
+      "Explore the story",
+      "Seasonal Dynamics",
+    ])
+      assert.ok(html.includes(feature), `Explorer must include ${feature}`);
+  }
   if (path === "/insights") {
     assert.ok(
       html.includes(new Intl.NumberFormat("en-US").format(report.quality.pairedValidPixels)),
@@ -71,7 +79,22 @@ for (const selector of [".site-navigation", ".radar-leaflet-map", ".data-table"]
 }
 console.log("Shared, explorer and table stylesheets delivered successfully.");
 
-for (const asset of Object.values(report.assets)) {
+const categoryReport = JSON.parse(
+  await readFile(new URL("../public/data/radar-categories.json", import.meta.url), "utf8"),
+);
+const seasonalReport = JSON.parse(
+  await readFile(new URL("../public/data/seasonal.json", import.meta.url), "utf8"),
+);
+const publicImages = JSON.parse(
+  await readFile(new URL("../public/data/public-imagery.json", import.meta.url), "utf8"),
+);
+const extraAssets = [
+  ...publicImages.observations.map((o) => o.asset),
+  ...categoryReport.categories.map((c) => c.asset),
+  ...Object.values(seasonalReport.assets),
+  ...(seasonalReport.metrics?.transitions.map((c) => c.asset) ?? []),
+];
+for (const asset of [...Object.values(report.assets), ...extraAssets]) {
   const response = await fetch(base + asset.url);
   assert.equal(response.status, 200);
   assert.ok(response.headers.get("content-type")?.includes("image/webp"));
@@ -86,6 +109,11 @@ for (const asset of Object.values(report.assets)) {
   );
 }
 for (const path of [
+  "/data/public-imagery.json",
+  "/data/seasonal.json",
+  "/data/seasonal-discovery.json",
+  "/data/seasonal-access.json",
+  "/data/radar-categories.json",
   "/data/metadata.json",
   "/data/analysis.json",
   "/data/study-area.geojson",
