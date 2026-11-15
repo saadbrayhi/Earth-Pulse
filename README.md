@@ -2,22 +2,35 @@
 
 EarthPulse is a NASA Space Apps 2026 project for **Dancing with the SARs**, on the **Water & Wetlands Monitoring** track. It makes two supplied NASA/ISRO NISAR observations over **Tanguar Haor, Bangladesh** inspectable through synchronized maps, measured statistics and transparent explanations.
 
+**Status: deployed.** The original radar study compares **6 October 2026 → 30 October 2026**. Additional public NASA optical imagery provides context for selected dates across January–November 2026.
+
 **Radar backscatter change is NOT validated flood extent.** EarthPulse demonstrates radar-change exploration, not operational flood detection or a validated water classifier.
 
 ## The experience
 
 - `/`: public project homepage using an actual radar observation, with study context and an explorer action.
-- `/explore`: before, after, synchronized swipe and backscatter-change views; date selection, opacity, fit/zoom controls, real study-region GeoJSON, legends and recoverable loading/error states.
-- `/insights`: full-resolution difference histogram, category percentages, coverage, two-observation record, downloadable statistics and deterministic explanations.
+- `/explore`: original NISAR before/after/swipe/change views, public optical imagery, a shared observation calendar, compatible-pair selection, opacity and fit/zoom controls, study-region GeoJSON, legends and recoverable loading/error states.
+- `/insights`: analysis of the selected data: original radar statistics and histogram, single-observation intensity statistics, or optical source information and limitations.
 - `/about`: methods, provenance gaps, supplemental investigation, sources and scientific limitations.
 
 The default interface uses light ivory, forest green and muted gold. Radar imagery retains a dark neutral canvas and its scientific blue/orange change colors. The palette is centralized in `src/styles/theme.css`; Tailwind utilities and charts use the same semantic variables. The core application requires no account, database, tile server, live NASA authentication, remote font or external AI API. The explanation panel is deterministic and grounded in the computed report.
 
-## Seasonal Dynamics and Change Detective
+## Observation modes and Change Detective
 
-The explorer now offers **Radar Change / Seasonal Dynamics**, a date registry/calendar,
+The explorer offers **Public imagery / Radar Change / Seasonal Dynamics**, a date registry/calendar,
 compatible-pair selection, clickable radar masks, a cited 2017/2026 impact timeline and
 **Explore the story**, a five-chapter guided demo. All existing themes remain available.
+
+**Radar Change** restores the original NISAR pair. Use **Original NISAR study** to return
+to 6–30 October from any explorer mode. Original NISAR records appear first among
+observations on the same date; optical records retain their separate source identity.
+
+**Public imagery** includes 20 downloaded NASA GIBS MODIS Terra optical browse images.
+Selected catalog-only dates can display separately labeled, same-date optical context.
+Use **Use NASA optical image** to choose optical records for a visual comparison.
+These images may contain clouds and do not supply radar differences, water classifications
+or water-area statistics. Not every calendar date has a usable image. See
+[public imagery provenance](docs/public-imagery.md) for sources and reproduction.
 
 **Seasonal water data is currently unavailable.** Real NASA catalog candidates were
 found, but Earthdata raster-access probes yielded no usable classified pixels. The
@@ -49,7 +62,7 @@ npm ci
 npm run dev
 ```
 
-Open **http://localhost:3000**. The homepage is now a real EarthPulse page; the explorer is **http://localhost:3000/explore**.
+Open **http://localhost:3000**, or go directly to **http://localhost:3000/explore** for the original radar study.
 
 ```bash
 npm run lint
@@ -59,7 +72,7 @@ npm run build
 npm start
 ```
 
-The production build uses the supported Webpack option. Turbopack's production CSS worker was denied local port binding in the managed execution environment. Both bundlers now use the standard Tailwind PostCSS adapter; the experimental loader was not reused in Webpack. System font stacks avoid Google Fonts build-time requests. Existing unrelated dependency changes were preserved.
+The production build uses Webpack and the standard Tailwind PostCSS adapter. System font stacks avoid build-time font downloads. Python is needed only to reproduce or extend the data processing, not to run the web application.
 
 ## Code organization
 
@@ -79,9 +92,13 @@ Use `npm run format` to format frontend code and `npm run format:check` to check
 Select observation A/B or open a date card in the explorer calendar. The selected data
 appears in navigation and carries into Insights. Single-date views show that date's
 paired-population intensity statistics; pair views show the supported comparison.
-Catalog-only dates display an unavailable state rather than another pair's results.
+Catalog-only dates without optical context display an unavailable state. Where same-date
+optical context exists, the interface identifies the displayed MODIS source and shows its
+limitations rather than borrowing radar statistics.
 Use **Change selected observations**, **Analyze selected pair** or **Reset selection**
-on either page. The URL preserves the selection across reloads and shared links.
+on either page. **Reset selection** returns to the original NISAR pair. The URL preserves
+the selection across reloads and shared links; the map, calendar, navigation and Insights
+read that same selection.
 
 See [selection and map lifecycle notes](docs/selection-and-map-lifecycle.md) for the
 cached-navigation overlay fix and regression commands.
@@ -132,10 +149,10 @@ Outputs:
 | `data/derived/paired_valid_mask.tif` | 0 = invalid pair, 1 = valid pair; 255 reserved for NoData |
 | `data/derived/audit.json` | Local copy of the report |
 | `public/data/analysis.json` | Computed statistics, source hashes, QC, preview manifest and methods |
-| `public/data/display/*-<hash>.webp` | Three small, versioned browser overlays |
+| `public/data/display/*-<hash>.webp` | Versioned radar previews, category masks and public optical imagery |
 | `public/data/study-area.geojson` | Copy of the supplied analysis rectangle |
 
-Current display assets total **1,773,140 bytes** (~1.77 MB), compared with ~29.5 MB for the original PNGs. Hash-named previews have immutable caching; JSON metadata is not given an immutable cache. The original full-resolution sources are preserved. When changing dates or source grids, update the manifest and legacy metadata consistently, regenerate the report, and rebuild. The explorer rejects mismatched bounds, dates or thresholds.
+The three primary radar previews total **1,773,140 bytes** (~1.77 MB), compared with ~29.5 MB for the original PNGs. The 20 public optical images add **169,350 bytes**. Hash-named previews have immutable caching; JSON metadata is not given an immutable cache. The original full-resolution sources are preserved. When changing dates or source grids, update the manifest and legacy metadata consistently, regenerate the report, and rebuild. The explorer rejects mismatched bounds, dates or thresholds.
 
 ## Scientific interpretation
 
@@ -145,7 +162,7 @@ Current display assets total **1,773,140 bytes** (~1.77 MB), compared with ~29.5
 - HH-only return depends on roughness, moisture, vegetation, water and acquisition conditions. Smooth open water can have low return; flooded vegetation may have increased return.
 - No extra speckle filtering is applied. Statistics use the supplied unfiltered exports and may include speckle and upstream resampling effects.
 - Source grids match, but orbit, incidence angle, processing-release comparability and native quality masks are unverified/unavailable. Numeric coverage is not scientific confidence.
-- No water area, flood area, expansion/recession, inferred long-term trend or classification accuracy is reported. There are only two displayed observations.
+- No water area, flood area, expansion/recession, inferred long-term trend or classification accuracy is reported. Radar analysis uses only the two original observations; additional optical dates provide visual context.
 
 The generated report contains all exact values; the UI imports those values rather than hardcoding results. See [the data audit](docs/data-audit.md) for detailed decisions.
 
@@ -159,7 +176,7 @@ python3 processing/scripts/probe_reference.py
 
 Discovery is bounded to actual AOI bounds, 2026-10-01 through 2026-11-06, six collections and five returned samples per collection. It downloads metadata only. Results, candidate IDs, dates and public query URLs are in `public/data/discovery.json`.
 
-Overlapping GCOV, DSWx-HLS, DSWx-S1 and HLS candidates were found. One near-date DSWx-HLS WTR asset per target date was probed through GDAL for a small study-area window. Neither access attempt yielded a usable raster; `public/data/reference-probe.json` records the outcome. **No supplemental raster is integrated and no water validation is claimed.** Full-tile mosaicking, quality/cloud masks, temporal suitability, attribution and independent evaluation remain necessary. JPL lists DSWx-NI as under development; operational availability is not assumed.
+Overlapping GCOV, DSWx-HLS, DSWx-S1 and HLS candidates were found. One near-date DSWx-HLS WTR asset per target date was probed through GDAL for a small study-area window. Neither access attempt yielded a usable raster; `public/data/reference-probe.json` records the outcome. **No supplemental classified raster is integrated and no water validation is claimed.** Public MODIS optical browse images are integrated separately for visual context. Full-tile mosaicking, quality/cloud masks, temporal suitability, attribution and independent evaluation remain necessary before adding classification results.
 
 The scripts do not display or read credential file contents. GDAL uses its supported authentication handling. `.aws`, `.netrc`, `.env*`, the virtual environment and local analytic outputs are ignored; deployment ignores raw/local processing files as well. Never add passwords or tokens to reports or commits.
 
@@ -176,15 +193,18 @@ npm run build
 npm start -- --port 3001
 # In another terminal:
 node tests/http-smoke.mjs http://localhost:3001
+node tests/workspace-browser.mjs http://localhost:3001
+node tests/public-imagery-browser.mjs http://localhost:3001
+node tests/browser-smoke.mjs http://localhost:3001
 ```
 
 The HTTP smoke check verifies all four routes, navigation markup, source-derived displayed values, local JSON, exact preview bytes/content hashes, cache headers, missing-resource 404s and Leaflet SSR isolation. This does not substitute for browser interaction testing.
 
-Manual browser checklist: navigate all routes; pan, zoom and fit; switch every view/date; move the swipe range to 0/50/100 with mouse and keyboard; adjust opacity; resize to mobile; check the console for hydration/map errors; block a preview/metadata request and retry. The managed Browser connection was unavailable during implementation, so visual layout, pointer interactions and accessibility in a real browser still need that pass.
+Browser regression scripts use isolated headless Chrome with a temporary profile; set `CHROME_BIN` if Chrome is installed elsewhere. Checks cover image loading, radar and optical selection, linked Insights, returning to the original NISAR pair, reload persistence and cached route navigation. The latest original-study regression completed without runtime errors. This does not constitute a complete accessibility, cross-browser or scientific validation audit.
 
-## Deploy
+## Deployment
 
-All four routes are statically prerendered by Next.js; no application secrets are needed. On Vercel, import this repository/branch as a Next.js project using Node 24, install with `npm ci`, and build with `npm run build`. Keep the default Next.js output settings. Generated JSON and WebP assets must be included in source control when you choose to commit; Python is not needed at deploy time. `.vercelignore` excludes original/local analytic rasters and authentication files from a local CLI upload.
+EarthPulse is deployed. All four routes are statically prerendered by Next.js, and the core application requires no application secrets. For subsequent deployments, use Node 24, install with `npm ci`, and build with `npm run build`. Keep the hosting provider's standard Next.js output settings. Generated JSON and WebP assets must be included in the deployment; Python is not needed at deploy time. `.vercelignore` excludes original/local analytic rasters and authentication files from a local Vercel CLI upload.
 
 Local production preview:
 
@@ -193,7 +213,7 @@ npm run build
 npm start
 ```
 
-No deployment, commit, push, merge or pull request is performed automatically. A live deployment and browser demo check remain delivery steps.
+After a deployment update, verify the original 6–30 October NISAR comparison and navigation to Insights. Regenerated scientific reports or imagery require a new application build to update shared imported data.
 
 ## Credits and sources
 
@@ -208,12 +228,3 @@ Data: **NASA/ISRO NISAR**; distribution documentation: **NASA ASF DAAC**. EarthP
 - [Ramsar Tanguar Haor information](https://rsis.ramsar.org/RISapp/files/RISrep/BD1031RIS.pdf)
 
 See the [three-minute judge walkthrough](docs/demo.md).
-
-## Public imagery for more dates
-
-The shared calendar now includes 20 downloaded official NASA GIBS MODIS Terra optical
-images across January–November 2026. Catalog-only dates can show explicitly labeled
-same-date optical context without pretending the catalog product was processed. Use
-**Use NASA optical image** to select optical records for visual comparison. Optical
-Insights provides source information and limitations, with no borrowed radar/water
-statistics. See [public imagery provenance](docs/public-imagery.md).
